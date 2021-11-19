@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "174158602420",
+    "firebase_url": "https://biblioteca-s-default-rtdb.firebaseio.com",
+    "project_id": "biblioteca-s",
+    "storage_bucket": "biblioteca-s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174158602420:android:5db47aabdfd513a0c5f7e1",
+        "android_client_info": {
+          "package_name": "com.example.bibliotec_s2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174158602420-vu5f4adoh92919kblo1smrjj0vc1gfic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt1zpF2_YtQQXDW5JPBoL-rDJvwLUl0uE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174158602420-vu5f4adoh92919kblo1smrjj0vc1gfic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
