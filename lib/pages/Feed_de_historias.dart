@@ -1,68 +1,31 @@
-// ignore: avoid_web_libraries_in_flutter
-//import 'dart:js';
 
-import 'package:bibliotec_s2/pages/menu_do_usuario.dart';
-import 'package:bibliotec_s2/pages/nova_historia.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-
-import 'pages/cadastro.dart';
-import 'pages/criar_conta.dart';
-import 'pages/login.dart';
-import 'pages/menu_do_usuario.dart';
-Future<void> main() async {
-  //
-  // INICIALIZAR OS Plugins
-  //
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/menu_opcoes',
-      routes: {
-        '/login': (context) => LoginPage(),
-        '/criar_conta': (context) => CriarContaPage(),
-        '/principal': (context) => PrincipalPage(),
-        '/cadastro': (context) => CadastroPage(),
-         '/menu_user': (context) => Menu_user(),
-         '/menu_opcoes': (context) => Painel_de_colecoes(),
-         '/NovaHistoria': (context) => NovaHistoria(),
-      },
-    ),
-  );
-}
-
-class PrincipalPage extends StatefulWidget {
-  const PrincipalPage({Key? key}) : super(key: key);
+class Feed_historias extends StatefulWidget {
+  const Feed_historias({ Key? key }) : super(key: key);
 
   @override
-  _PrincipalPageState createState() => _PrincipalPageState();
+  _Feed_historiasState createState() => _Feed_historiasState();
 }
 
-class _PrincipalPageState extends State<PrincipalPage> {
-  //Referenciar a coleção do Firestore
+class _Feed_historiasState extends State<Feed_historias> {
+  
+//Referenciar a coleção do Firestore
   // ignore: prefer_typing_uninitialized_variables
-  var cafes;
+  var historias;
 
   @override
   void initState() {
     super.initState();
 
-    cafes = FirebaseFirestore.instance
-        .collection('cafes')
-        .where('usuario', isEqualTo: 'joao@gmail.com');
+    historias = FirebaseFirestore.instance
+        .collection('historias');
   }
 
   //
   // Especificar a aparência de cada elemento da List
   //
   exibirItemColecao(item) {
-    String nome = item.data()['nome'];
-    String preco = item.data()['preco'];
+    String titulo = item.data()['nome'];
+    String subtitulo = item.data()['preco'];
 
     return ListTile(
       title: Text(
@@ -79,7 +42,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
           //
           // APAGAR um documento
           //
-          cafes.doc(item.id).delete();
+         historias.doc(item.id).delete();
         },
       ),
       onTap: () {
@@ -114,7 +77,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
       //
       body: StreamBuilder<QuerySnapshot>(
           //fonte de dados (coleção)
-          stream: cafes.snapshots(),
+          stream: historias.snapshots(),
 
           //exibir os dados retornados
           builder: (context, snapshot) {
