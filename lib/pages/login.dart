@@ -81,30 +81,45 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   //
-  // LOGIN com o Firebase Auth
   //
-  void login(email, senha) {
-    FirebaseAuth.instance.setPersistence(Persistence.SESSION).then((value) {
-      FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: senha)
-          .then((value) {
-        Navigator.pushReplacementNamed(context, '/Painel_de_colecoes');
-      }).catchError((erro) {
-        if (erro.code == 'user-not-found') {
-          exibirMensagem('ERRO: Usuário não encontrado.');
-        } else if (erro.code == 'wrong-password') {
-          exibirMensagem('ERRO: Senha incorreta.');
-        } else if (erro.code == 'invalid-email') {
-          exibirMensagem('ERRO: Email inválido.');
-        } else {
-          exibirMensagem('ERRO: ${erro.message}.');
-        }
-      });
-    }).catchError((erro) {
-      exibirMensagem('ERRO: ${erro.message}.');
-    });
-  }
 
+  // LOGIN com o Firebase Auth
+
+  //
+
+  void login(email, senha) {
+
+    FirebaseAuth.instance
+
+        .signInWithEmailAndPassword(email: email, password: senha)
+
+        .then((value) {
+
+      Navigator.pushReplacementNamed(context, '/HOME');
+
+    }).catchError((erro) {
+
+      if (erro.code == 'user-not-found') {
+
+        exibirMensagem('ERRO: Usuário não encontrado.');
+
+      } else if (erro.code == 'wrong-password') {
+
+        exibirMensagem('ERRO: Senha incorreta.');
+
+      } else if (erro.code == 'invalid-email') {
+
+        exibirMensagem('ERRO: Email inválido.');
+
+      } else {
+
+        exibirMensagem('ERRO: ${erro.message}.');
+
+      }
+
+    });
+
+  }
   void exibirMensagem(msg) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
