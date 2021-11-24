@@ -1,46 +1,65 @@
-
-// ignore_for_file: camel_case_types, duplicate_ignore
+// ignore_for_file: camel_case_types
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class Feed_historias extends StatefulWidget {
-  const Feed_historias({ Key? key }) : super(key: key);
+class Listar_acervo extends StatefulWidget {
+  const Listar_acervo({Key? key}) : super(key: key);
 
   @override
-  _Feed_historiasState createState() => _Feed_historiasState();
+  _Listar_acervoState createState() => _Listar_acervoState();
 }
 
-class _Feed_historiasState extends State<Feed_historias> {
-  
-//Referenciar a coleção do Firestore
+class _Listar_acervoState extends State<Listar_acervo> {
   // ignore: prefer_typing_uninitialized_variables
-  var historias;
+  var cafes;
 
   @override
   void initState() {
     super.initState();
 
-    historias = FirebaseFirestore.instance
-        .collection('historias');
+    cafes = FirebaseFirestore.instance.collection('Historias');
+    //.where('usuario', isEqualTo: 'joao@gmail.com');
   }
 
   //
   // Especificar a aparência de cada elemento da List
   //
-  exibirItemColecao(item) {
+  exibirItemColecao(item) { // função re retorna um listtile
     String titulo = item.data()['titulo'];
-    String subtitulo = item.data()['subtitulo'];
+    String autor = item.data()['autor'];
 
+    /*return ListView.builder(
+  padding: const EdgeInsets.all(8),
+  itemBuilder: (BuildContext context, int index) {
+    return Container(
+      height: 50,
+      child: Center(
+        child:Column(children: [
+           
+          Text(titulo,
+            style: const TextStyle(fontSize: 30),),
+          Text(autor,
+            style: const TextStyle(fontSize: 25),),
+         
+        ],) 
+        ),
+    );
+  }
+);
+    
+   */ 
+    
     return ListTile(
+      
       title: Text(
         titulo,
-        style: const TextStyle(fontSize: 30),
+        style: const TextStyle(fontSize: 24),
       ),
-      subtitle: Text(subtitulo,
-        style: const TextStyle(fontSize: 25),
+      subtitle: Text(
+        autor,
+        style: const TextStyle(fontSize: 18),
       ),
       trailing: IconButton(
         icon: const Icon(Icons.delete),
@@ -48,11 +67,12 @@ class _Feed_historiasState extends State<Feed_historias> {
           //
           // APAGAR um documento
           //
-         historias.doc(item.id).delete();
+          cafes.doc(item.id).delete();
         },
       ),
+      
       onTap: () {
-      Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
+          Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
       },
     );
   }
@@ -61,12 +81,11 @@ class _Feed_historiasState extends State<Feed_historias> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Acervo'),
+        title: Text('acervo'),
         centerTitle: true,
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.lightGreen.shade700,
         automaticallyImplyLeading: false,
         actions: [
-         
           IconButton(
             icon: Icon(Icons.logout_outlined),
             onPressed: () async {
@@ -83,7 +102,7 @@ class _Feed_historiasState extends State<Feed_historias> {
       //
       body: StreamBuilder<QuerySnapshot>(
           //fonte de dados (coleção)
-          stream: historias.snapshots(),
+          stream: cafes.snapshots(),
 
           //exibir os dados retornados
           builder: (context, snapshot) {
@@ -103,8 +122,12 @@ class _Feed_historiasState extends State<Feed_historias> {
               default:
                 final dados = snapshot.requireData;
                 return ListView.builder(
+                    
                     itemCount: dados.size,
                     itemBuilder: (context, index) {
+                      // 
+                      //-----------------------------------------------------------
+                      //
                       return exibirItemColecao(dados.docs[index]);
                     });
             }
@@ -112,7 +135,7 @@ class _Feed_historiasState extends State<Feed_historias> {
 
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.green,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/NovaHistoria');

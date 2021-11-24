@@ -31,17 +31,19 @@ class  NovaHistoriaState extends State<NovaHistoria> {
   @override
   Widget build(BuildContext context) {
   
-  //
+    //
     // RECUPERAR o ID do Café que foi selecionado pelo usuário
     //
     var id = ModalRoute.of(context)?.settings.arguments;
 
-    if (id != null){
+    if (id != null){ // TESTE DE EXISTENCIA DO DOCUMENTO NA BASE
       if (txtTitulo.text.isEmpty && txtSubtitulo.text.isEmpty && txtAutor.text.isEmpty && txtSinopse.text.isEmpty){
         getDocumentById(id);
       }
     }
-
+    //
+    // INICIO DA INTERFACE DE CADASTRO DE NOVAS "HISTORIAS"
+    //
     return Scaffold(
       appBar: AppBar(
         title: Text('Biblioteca_S2'),
@@ -53,7 +55,7 @@ class  NovaHistoriaState extends State<NovaHistoria> {
       body: Container(
         padding: EdgeInsets.all(30),
         child: ListView(children: [
-          TextField(
+          TextField( // TITULO
             controller: txtTitulo,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -62,7 +64,7 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 30),
-          TextField(
+          TextField( // SUBTITULO
             controller: txtSubtitulo,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -71,7 +73,7 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 50),
-          TextField(
+          TextField( // AUTOR
             controller: txtAutor,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -81,12 +83,7 @@ class  NovaHistoriaState extends State<NovaHistoria> {
           ),
           SizedBox(height: 50),
 
-         /* TextFormField(
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(10),
-      ]
-    )*/
-          TextField(
+          TextField(// SINOPSE
             maxLines: 5,
             maxLength: 100,
             controller: txtSinopse,
@@ -97,13 +94,13 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 50),
-          Row(
+          Row( // LINHA COM BOTOES DE AÇÃO
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              Container( // BOTOES DE AÇÃO
                 padding: EdgeInsets.all(5),
                 width: 150,
-                child: ElevatedButton(
+                child: ElevatedButton(//BTN SALVAR
                    child: Text('Salvar',
                    style: TextStyle(
                            color: Colors.orange),
@@ -140,21 +137,19 @@ class  NovaHistoriaState extends State<NovaHistoria> {
                       ),
                     );
                     Navigator.pop(context);
-                    
-                  },
+                    },
                 ),
               ),
               Container(
                 padding: EdgeInsets.all(5),
                 width: 150,
-                child: ElevatedButton(
+                child: ElevatedButton( //BTN CANCELAR
                    child: Text('cancelar',
                    style: TextStyle(
-                           color: Colors.orange),
-                      textAlign: TextAlign.center,
-                      ),
-                  onPressed: () {
-                    Navigator.pop(context);
+                            color: Colors.orange),
+                            textAlign: TextAlign.center,),
+                    onPressed: () {
+                      Navigator.pop(context);
                   },
                 ),
               ),

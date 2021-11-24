@@ -17,7 +17,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('Café Store'),
+          title: Text('Bibliotec_S2'),
           centerTitle: true,
           backgroundColor: Colors.brown),
       backgroundColor: Colors.brown[50],
