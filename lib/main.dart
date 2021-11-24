@@ -4,8 +4,6 @@
 import 'package:bibliotec_s2/pages/listar_acervo.dart';
 import 'package:bibliotec_s2/pages/menu_do_usuario.dart';
 import 'package:bibliotec_s2/pages/nova_historia.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +21,7 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/menu_opcoes',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => LoginPage(),
         '/criar_conta': (context) => CriarContaPage(),

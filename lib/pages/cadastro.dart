@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+// versão não sendo utilizada -> nova_historia.dart
 class CadastroPage extends StatefulWidget {
   const CadastroPage({Key? key}) : super(key: key);
 

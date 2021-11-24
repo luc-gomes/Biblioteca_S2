@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     
     return Scaffold(
       appBar: AppBar(
-          title: Text('Café Store'),
+          title: Text('Biblioteca_S2'),
           centerTitle: true,
           backgroundColor: Colors.brown),
       backgroundColor: Colors.brown[50],
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
       FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: senha)
           .then((value) {
-        Navigator.pushReplacementNamed(context, '/principal');
+        Navigator.pushReplacementNamed(context, '/Painel_de_colecoes');
       }).catchError((erro) {
         if (erro.code == 'user-not-found') {
           exibirMensagem('ERRO: Usuário não encontrado.');
