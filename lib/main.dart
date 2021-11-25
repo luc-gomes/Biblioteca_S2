@@ -7,6 +7,7 @@ import 'package:bibliotec_s2/pages/listar_acervo.dart';
 import 'package:bibliotec_s2/pages/menu/home.dart';
 import 'package:bibliotec_s2/pages/menu/menu_do_usuario.dart';
 import 'package:bibliotec_s2/pages/Formularios/nova_historia.dart';
+import 'package:bibliotec_s2/pages/menu/minha_conta.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ Future<void> main() async {
         '/Listar_acervo': (context) => Listar_acervo(),
         '/HOME': (context) => HomePage(),
         '/sobre': (context) => Tela_sobre(),
+         '/Minha_conta': (context) => Minha_conta(),
       },
     ),
   );

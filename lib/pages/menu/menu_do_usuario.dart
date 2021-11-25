@@ -177,6 +177,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                         iconSize: 60,
                         color:Colors.lightGreen.shade900,
                         onPressed: () {
+                          Navigator.pushNamed(context, '/Minha_conta');
                           setState(() {
                             // colocar alguma ação aqui
                             Icon(Icons.account_box_sharp);

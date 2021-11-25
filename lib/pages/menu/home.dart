@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
          
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            label: 'configuraçoes',
+            label: 'Opções',
           ),
         ],
         // Mudança de Tela (Página)

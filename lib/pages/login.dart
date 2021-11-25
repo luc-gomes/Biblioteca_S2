@@ -1,5 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+class Dados {
+  final String txtEmail;
+
+   
+  Dados(this.txtEmail,);
+}
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -147,8 +153,14 @@ class _LoginPageState extends State<LoginPage> {
         .signInWithEmailAndPassword(email: email, password: senha)
 
         .then((value) {
+            var obj = Dados(
+              
+              txtEmail.text,
+               
+                  );
 
-      Navigator.pushReplacementNamed(context, '/HOME');
+      Navigator.pushReplacementNamed(context, '/HOME',arguments: obj);
+        
 
     }).catchError((erro) {
 
@@ -182,3 +194,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
