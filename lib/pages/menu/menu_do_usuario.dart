@@ -136,6 +136,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                         iconSize: 60,
                         color: Colors.lightGreen.shade900,
                         onPressed: () {
+                          Navigator.pushNamed(context, '/sobre');
                           setState(() {
                              
                         /*    var obj = Dados(
@@ -144,7 +145,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                               nickname.text,
                             );
 */
-                         //   Navigator.pushNamed(context, '/t4', arguments: obj);
+                          
                           });
                         },
                       ),

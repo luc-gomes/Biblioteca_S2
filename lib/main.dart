@@ -2,6 +2,7 @@
 //import 'dart:js';
 
 import 'package:bibliotec_s2/Widgets/blocas002.dart';
+import 'package:bibliotec_s2/pages/Tela_sobre.dart';
 import 'package:bibliotec_s2/pages/listar_acervo.dart';
 import 'package:bibliotec_s2/pages/menu/home.dart';
 import 'package:bibliotec_s2/pages/menu/menu_do_usuario.dart';
@@ -31,8 +32,9 @@ Future<void> main() async {
         '/cadastro': (context) => CadastroPage(),
         '/menu_opcoes': (context) => Painel_de_colecoes(),
         '/NovaHistoria': (context) => NovaHistoria(),
-         '/Listar_acervo': (context) => Listar_acervo(),
-           '/HOME': (context) => HomePage(),
+        '/Listar_acervo': (context) => Listar_acervo(),
+        '/HOME': (context) => HomePage(),
+        '/sobre': (context) => Tela_sobre(),
       },
     ),
   );

@@ -9,20 +9,24 @@ class WidgetHistoria extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
-  
-      //margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-      padding: EdgeInsets.all(30),
-      //decoração
-      decoration: BoxDecoration(
-        border:  Border.all(
-          color:  Colors.yellow.shade700,
-          width: 25,
-        ),
-      color: Colors.blue[200],
+         
+         padding: EdgeInsets.all(30),
+
+         decoration: BoxDecoration(
+            color:  Colors.yellow.shade700,
+            borderRadius: BorderRadius.only(
+              topLeft: const Radius.circular(30.0),
+              topRight: const Radius.circular(30.0),
+              bottomLeft: const Radius.circular(30.0),
+              bottomRight: const Radius.circular(30.0),
+          ),
+                   
+      
       ),
-      width: MediaQuery.of(context).size.width *0.99,
-      height: 700,
+      width: MediaQuery.of(context).size.width *0.80,
+      height: 600,
       child: Column(children: [
         // colocar imagem
         Image.asset(capa),

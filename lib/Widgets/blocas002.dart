@@ -103,6 +103,14 @@ class _FeedBlocos01State extends State<FeedBlocos01> {
            
            */
             Container(
+               decoration: new BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(40.0),
+                        topRight: const Radius.circular(40.0),
+                      ),
+               ),
+            //  color: Colors.green,
               child: Row(
                 // titulo da pagina principal
                 mainAxisAlignment: MainAxisAlignment.center,
