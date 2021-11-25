@@ -24,7 +24,7 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/HOME',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => LoginPage(),
         '/criar_conta': (context) => CriarContaPage(),
