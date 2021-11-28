@@ -5,6 +5,7 @@ import 'package:bibliotec_s2/Widgets/blocas002.dart';
 import 'package:bibliotec_s2/pages/Tela_sobre.dart';
 import 'package:bibliotec_s2/pages/listar_acervo.dart';
 import 'package:bibliotec_s2/pages/menu/home.dart';
+import 'package:bibliotec_s2/pages/menu/listadelivros.dart';
 import 'package:bibliotec_s2/pages/menu/menu_do_usuario.dart';
 import 'package:bibliotec_s2/pages/Formularios/nova_historia.dart';
 import 'package:bibliotec_s2/pages/menu/minha_conta.dart';
@@ -37,6 +38,10 @@ Future<void> main() async {
         '/HOME': (context) => HomePage(),
         '/sobre': (context) => Tela_sobre(),
          '/Minha_conta': (context) => Minha_conta(),
+          '/AcervoListview': (context) => lista_acervo_listview(),
+
+
+         
       },
     ),
   );

@@ -1,6 +1,7 @@
 //import 'package:biblioteca_p1/Telas/paginas/confg_ui.dart';
 
-import 'package:bibliotec_s2/Widgets/blocas002.dart';
+//import 'package:bibliotec_s2/Widgets/blocas002.dart';
+import 'package:bibliotec_s2/pages/menu/listadelivros.dart';
 import 'package:flutter/material.dart';
 import 'menu_do_usuario.dart';
 //import '/Telas/paginas/confg_ui.dart';
@@ -25,7 +26,8 @@ class _HomePageState extends State<HomePage> {
         body: PageView(
         controller: pageController,
         children: [
-          FeedBlocos01(),
+          lista_acervo_listview(),
+          //FeedBlocos01(),
           Painel_de_colecoes(),
         ],
         onPageChanged: (index) {

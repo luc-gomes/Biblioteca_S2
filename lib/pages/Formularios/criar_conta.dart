@@ -19,8 +19,8 @@ class _CriarContaPageState extends State<CriarContaPage> {
       appBar: AppBar(
           title: Text('Bibliotec_S2'),
           centerTitle: true,
-          backgroundColor: Colors.brown),
-      backgroundColor: Colors.brown[50],
+          backgroundColor: Colors.green),
+      backgroundColor: Colors.green.shade400,
       body: Container(
         padding: EdgeInsets.all(50),
         child: ListView(
@@ -31,10 +31,20 @@ class _CriarContaPageState extends State<CriarContaPage> {
                 color: Colors.brown,
                 fontWeight: FontWeight.w300,
               ),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person),
+               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person,
+                color: Colors.orange.shade300),
                 labelText: 'Nome',
-              ),
+                  focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.yellow.shade600, width: 3.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                      ),
+                      hintText: 'Nome:',
+                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                    ),
             ),
             SizedBox(height: 20),
             TextField(
@@ -43,10 +53,20 @@ class _CriarContaPageState extends State<CriarContaPage> {
                 color: Colors.brown,
                 fontWeight: FontWeight.w300,
               ),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email),
+               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.email,
+                color: Colors.orange.shade300),
                 labelText: 'Email',
-              ),
+                  focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.yellow.shade600, width: 3.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                      ),
+                      hintText: 'email:',
+                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                    ),
             ),
             SizedBox(height: 20),
             TextField(
@@ -56,10 +76,20 @@ class _CriarContaPageState extends State<CriarContaPage> {
                 color: Colors.brown,
                 fontWeight: FontWeight.w300,
               ),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock),
+               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock,
+                color: Colors.orange.shade300),
                 labelText: 'Senha',
-              ),
+                  focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.yellow.shade600, width: 3.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                      ),
+                      hintText: 'Senha:',
+                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                    ),
             ),
             SizedBox(height: 40),
             Row(
@@ -67,8 +97,14 @@ class _CriarContaPageState extends State<CriarContaPage> {
               children: [
                 SizedBox(
                   width: 150,
-                  child: OutlinedButton(
-                    child: Text('criar'),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    primary: Colors.green,),
+                    child: Text('criar',
+                          style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          color: Colors.yellow),
+                          textAlign: TextAlign.center,),
                     onPressed: () {
                       criarConta(
                         txtNome.text,
@@ -80,8 +116,14 @@ class _CriarContaPageState extends State<CriarContaPage> {
                 ),
                 SizedBox(
                   width: 150,
-                  child: OutlinedButton(
-                    child: Text('cancelar'),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    primary: Colors.green.shade600,),
+                    child: Text('cancelar',
+                    style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          color: Colors.yellow),
+                          textAlign: TextAlign.center,),
                     onPressed: () {
                       Navigator.pop(context);
                     },
