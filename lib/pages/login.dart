@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email,
                 color: Colors.orange.shade300),
-                labelText: 'Nickname:',
+                labelText: 'Email:',
                   focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: Colors.yellow.shade600, width: 3.0),

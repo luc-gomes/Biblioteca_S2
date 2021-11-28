@@ -30,6 +30,7 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
     String titulo = item.data()['titulo'];
     String subtitulo = item.data()['subtitulo'];
 
+    
     return Container(
       child: Column(
         children: [
@@ -47,11 +48,25 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
               style: const TextStyle(fontSize: 25),
             ),
           ),
+          Container(
+             margin: EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              border: Border.all(
+              color: Colors.orange.shade300,
+              width: 30,
+          ),
+              ),
+            child:Image.asset('lib/Img/thumbnail.jpg'),
+        ),
           
       Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.delete),
+          
+            icon: const Icon(Icons.delete,
+            size: 18.0,
+            ),
             onPressed: () {
               //
               // APAGAR um documento
@@ -61,6 +76,21 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
       
       
           ),
+
+
+          IconButton(
+            
+             icon: const Icon(Icons.edit,
+             size: 18.0,
+             ),
+            
+            onPressed: (){
+            //
+            // editar documento
+            //
+
+            Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
+          },),
         ],
       ),
       
@@ -75,7 +105,7 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
       appBar: AppBar(
         title: Text('Acervo'),
         centerTitle: true,
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.green,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -87,7 +117,7 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
           ),
         ],
       ),
-      backgroundColor: Colors.brown.shade100,
+      backgroundColor: Colors.green.shade100,
 
       //
       // LISTAR os documentos da COLEÇÃO
@@ -122,8 +152,8 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
           }),
 
       floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.brown,
+        foregroundColor: Colors.yellow.shade600,
+        backgroundColor: Colors.green.shade600,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/NovaHistoria');
