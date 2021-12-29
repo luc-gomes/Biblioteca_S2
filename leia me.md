@@ -1,6 +1,18 @@
-# bibliotec_s2
+o repositório é meu então é em portugues mesmo!
+.
+.
+.
+.
+oĺa para você que olha esse repositório, caso queira estudar este código fique a vontade, para ele funcionar é necessário o flutter na versão (2.2 ~ 2.3) as versões mais novas estragaram o código de maneira que ele não funciona, o projeto no firebase está todo bagunçado e a autenticação de usuários é fraca.
 
-A new Flutter project.
+para baixar como versões anteriores do flutter e tornar possível testar esse código acesse:
+
+https://docs.flutter.dev/development/tools/sdk/releases
+
+existem diversos trechos de código comentados em meio ao repositório, ignore os
+
+divirta-se.
+
 
 ## Getting Started
 
