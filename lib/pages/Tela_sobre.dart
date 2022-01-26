@@ -5,7 +5,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:flutter/painting.dart';
+// ignore: unnecessary_import
+//import 'package:flutter/painting.dart';
 
 // ignore: camel_case_types
 class Tela_sobre extends StatefulWidget {
@@ -37,7 +38,8 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.green,
+      appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text('Sobre'),
       ),
       body: Center(
@@ -56,18 +58,17 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
               child: Card(
                 child: _animation.value <= 0.5
                     ? Container(
-                        
                         width: 150,
                         height: 200,
                         decoration: new BoxDecoration(
-                                    color: Colors.red,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: const Radius.circular(40.0),
-                                      topRight: const Radius.circular(40.0),
-                                       bottomLeft: const Radius.circular(40.0),
-                                       bottomRight: const Radius.circular(40.0),
-                                    ),
-                             ),
+                          color: Colors.red,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(40.0),
+                            topRight: const Radius.circular(40.0),
+                            bottomLeft: const Radius.circular(40.0),
+                            bottomRight: const Radius.circular(40.0),
+                          ),
+                        ),
                         child: Center(
                             child: Text(
                           '?',
@@ -77,15 +78,16 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                         width: 150,
                         height: 250,
                         decoration: new BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: const Radius.circular(40.0),
-                                      topRight: const Radius.circular(40.0),
-                                       bottomLeft: const Radius.circular(40.0),
-                                       bottomRight: const Radius.circular(40.0),
-                                    ),
-                             ),
-                        child: Image.asset('lib/Img/lucas_gomes_da_silva.jpg',
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(40.0),
+                            topRight: const Radius.circular(40.0),
+                            bottomLeft: const Radius.circular(40.0),
+                            bottomRight: const Radius.circular(40.0),
+                          ),
+                        ),
+                        child: Image.asset(
+                          'lib/Img/lucas_gomes_da_silva.jpg',
                           fit: BoxFit.cover,
                         )),
               ),
@@ -102,51 +104,51 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
               child: Card(
                 child: _animation.value <= 0.5
                     ? Container(
-                        
                         width: 300,
                         height: 300,
                         decoration: new BoxDecoration(
-                                    color: Colors.blue.shade900,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: const Radius.circular(40.0),
-                                      topRight: const Radius.circular(40.0),
-                                       bottomLeft: const Radius.circular(40.0),
-                                       bottomRight: const Radius.circular(40.0),
-                                    ),
-                             ),
+                          color: Colors.blue.shade900,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(40.0),
+                            topRight: const Radius.circular(40.0),
+                            bottomLeft: const Radius.circular(40.0),
+                            bottomRight: const Radius.circular(40.0),
+                          ),
+                        ),
                         child: Center(
                             child: Text(
                           ' demonstrar uma "plataforma" que adicione remova e edite publique e apresente historias\n\n ESTE É O APLICATIVO DE UM ESTUDANTE PARA TREINAR E EVOLUIR AS SUAS PROBRIAS HABILIDADES NA LINGUAGEM NO FRAMEWORK. \n\n APRECIE COM MODERAÇÃO.',
                           style: TextStyle(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16,
-                            color: Colors.yellow.shade700
-                            ),
+                              fontStyle: FontStyle.normal,
+                              fontSize: 16,
+                              color: Colors.yellow.shade700),
                         )))
                     : Container(
                         width: 300,
                         height: 300,
                         decoration: new BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: const Radius.circular(40.0),
-                                      topRight: const Radius.circular(40.0),
-                                       bottomLeft: const Radius.circular(40.0),
-                                       bottomRight: const Radius.circular(40.0),
-                                    ),
-                             ),
+                          color: Colors.green,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(40.0),
+                            topRight: const Radius.circular(40.0),
+                            bottomLeft: const Radius.circular(40.0),
+                            bottomRight: const Radius.circular(40.0),
+                          ),
+                        ),
                         child: RotatedBox(
                           quarterTurns: 2,
-                          child:  Image.asset('lib/Img/sccapolindo.jpg',
+                          child: Image.asset(
+                            'lib/Img/sccapolindo.jpg',
                             fit: BoxFit.cover,
                           ),
                         )),
               ),
             ),
-            ElevatedButton( 
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green,
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                ),
                 onPressed: () {
                   if (_status == AnimationStatus.dismissed) {
                     _controller.forward();

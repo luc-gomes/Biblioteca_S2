@@ -26,33 +26,12 @@ class _Listar_acervoState extends State<Listar_acervo> {
   //
   // Especificar a aparência de cada elemento da List
   //
-  exibirItemColecao(item) { // função re retorna um listtile
+  exibirItemColecao(item) {
+    // função re retorna um listtile
     String titulo = item.data()['titulo'];
     String autor = item.data()['autor'];
 
-    /*return ListView.builder(
-  padding: const EdgeInsets.all(8),
-  itemBuilder: (BuildContext context, int index) {
-    return Container(
-      height: 50,
-      child: Center(
-        child:Column(children: [
-           
-          Text(titulo,
-            style: const TextStyle(fontSize: 30),),
-          Text(autor,
-            style: const TextStyle(fontSize: 25),),
-         
-        ],) 
-        ),
-    );
-  }
-);
-    
-   */ 
-    
     return ListTile(
-      
       title: Text(
         titulo,
         style: const TextStyle(fontSize: 24),
@@ -64,15 +43,11 @@ class _Listar_acervoState extends State<Listar_acervo> {
       trailing: IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () {
-          //
-          // APAGAR um documento
-          //
           cafes.doc(item.id).delete();
         },
       ),
-      
       onTap: () {
-          Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
+        Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
       },
     );
   }
@@ -96,14 +71,10 @@ class _Listar_acervoState extends State<Listar_acervo> {
         ],
       ),
       backgroundColor: Colors.brown.shade100,
-
-      //
-      // LISTAR os documentos da COLEÇÃO
-      //
       body: StreamBuilder<QuerySnapshot>(
+          // listas docs coleção
           //fonte de dados (coleção)
           stream: cafes.snapshots(),
-
           //exibir os dados retornados
           builder: (context, snapshot) {
             //verificar o estado da conexão
@@ -122,17 +93,12 @@ class _Listar_acervoState extends State<Listar_acervo> {
               default:
                 final dados = snapshot.requireData;
                 return ListView.builder(
-                    
                     itemCount: dados.size,
                     itemBuilder: (context, index) {
-                      // 
-                      //-----------------------------------------------------------
-                      //
                       return exibirItemColecao(dados.docs[index]);
                     });
             }
           }),
-
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
         backgroundColor: Colors.green,
