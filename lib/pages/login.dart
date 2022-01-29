@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           //title: Text('Biblioteca_S2'),
           centerTitle: true,
           backgroundColor: Colors.green),
-      backgroundColor: Colors.green.shade300,
+      backgroundColor: Colors.lightBlue,
       body: Container(
         padding: EdgeInsets.all(20),
         child: ListView(
@@ -60,11 +60,11 @@ class _LoginPageState extends State<LoginPage> {
                       // LOGO E NOME DO APP
                       children: [
                         Text(
-                          'Biblioteca_S2',
+                          'Sccapolindo',
                           style: TextStyle(
                               fontSize: 42,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.orange.shade400),
+                              fontStyle: FontStyle.italic,
+                              color: Colors.lightBlue.shade700),
                           textAlign: TextAlign.center,
                         ),
                       ],
