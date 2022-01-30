@@ -23,12 +23,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
           //title: Text('Biblioteca_S2'),
           centerTitle: true,
           backgroundColor: Colors.green),
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.lightBlue,*/
       body: Container(
+        color: Colors.blueAccent.shade100,
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
@@ -37,10 +38,10 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 border: Border.all(
-                  color: Colors.orange.shade300,
+                  color: Colors.lightBlueAccent.shade700,
                   width: 10,
                 ),
-                color: Colors.green.shade800,
+                color: Colors.white,
               ),
               child: Column(
                 children: [
@@ -81,17 +82,17 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.w300,
               ),
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email, color: Colors.orange.shade300),
+                prefixIcon: Icon(Icons.email, color: Colors.white),
                 labelText: 'Email:',
                 focusedBorder: OutlineInputBorder(
                   borderSide:
-                      BorderSide(color: Colors.yellow.shade600, width: 3.0),
+                      BorderSide(color: Colors.white, width: 3.0),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.amber, width: 1.0),
+                  borderSide: BorderSide(color: Colors.white, width: 1.0),
                 ),
                 hintText: 'Nickname:',
-                hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                hintStyle: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 20),
@@ -104,17 +105,17 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.w300,
               ),
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock, color: Colors.orange.shade300),
+                prefixIcon: Icon(Icons.lock, color: Colors.white),
                 labelText: 'Senha',
                 focusedBorder: OutlineInputBorder(
                   borderSide:
-                      BorderSide(color: Colors.yellow.shade600, width: 3.0),
+                      BorderSide(color: Colors.white, width: 3.0),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                  borderSide: BorderSide(color: Colors.white, width: 1.0),
                 ),
                 hintText: 'Senha:',
-                hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                hintStyle: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 40),
@@ -122,13 +123,14 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
+                  side: BorderSide(width: 5.0, color: Colors.white,),
+                  primary: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(
                   'entrar',
                   style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Colors.yellow),
+                      fontStyle: FontStyle.normal, color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
@@ -144,13 +146,14 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green.shade700,
+                  side: BorderSide(width: 5.0, color: Colors.white,),
+                  primary: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(
                   'Criar conta',
                   style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Colors.yellow),
+                      fontStyle: FontStyle.normal, color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
