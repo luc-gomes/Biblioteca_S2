@@ -105,19 +105,19 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
       appBar: AppBar(
         title: Text('Acervo'),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.red,
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(
+         /* IconButton(
             icon: Icon(Icons.logout_outlined),
             onPressed: () async {
               FirebaseAuth.instance.signOut();
               Navigator.pushReplacementNamed(context, '/login');
             },
-          ),
+          ),*/
         ],
       ),
-      backgroundColor: Colors.green.shade100,
+      backgroundColor: Colors.blue.shade900,
 
       //
       // LISTAR os documentos da COLEÇÃO
@@ -151,14 +151,14 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
             }
           }),
 
-      floatingActionButton: FloatingActionButton(
+     /* floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.yellow.shade600,
         backgroundColor: Colors.green.shade600,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/NovaHistoria');
         },
-      ),
+      ),*/
     );
   }
 }

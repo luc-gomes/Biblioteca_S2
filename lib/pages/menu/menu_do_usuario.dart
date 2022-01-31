@@ -15,11 +15,12 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar( 
       title: Text('Menu'),
-      backgroundColor: Colors.green.shade500,
+      backgroundColor: Colors.red,
       ),
       body:
+      //-----------------------------------------body----------------------------
           Container(
-            color: Colors.green.shade600,
+            color: Colors.blue.shade700,
             child: GridView.count(          
             primary: false,
             padding: const EdgeInsets.all(20),
@@ -27,6 +28,9 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
             mainAxisSpacing: 10,
             crossAxisCount: 2,
             children: <Widget>[
+
+
+              //---------------------------------------blocos menu---------------
               Container(// NOVA HISTORIA
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -59,6 +63,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade200,
               ),
+
+              //---------------------------------------bloco1--------------------
               Container(// minhas historias
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -92,6 +98,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade200,
               ),
+
+              //-------------------------------------------bloco2---------------
               Container( // ajuda
                 
                 padding: const EdgeInsets.all(8),
@@ -125,6 +133,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade400,
               ),
+              //---------------------------------------bloco3-------------------
               Container(//sobre
 
                 padding: const EdgeInsets.all(8),
@@ -144,7 +153,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                               email.text,
                               nickname.text,
                             );
-*/
+                            
+                            */
                           
                           });
                         },
@@ -165,6 +175,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade400,
               ),
+
+              //-----------------------------------bloco4-----------------------
               Container(//conta
  
                 padding: const EdgeInsets.all(8),
@@ -201,6 +213,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade600,
               ),
+
+              //-----------------------------------bloco5------------------------
               Container(//Log_out
          
                 padding: const EdgeInsets.all(8),
@@ -236,6 +250,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade600,
               ),
+              //---------------------------------------------------------------
             ],
     ),
           ),

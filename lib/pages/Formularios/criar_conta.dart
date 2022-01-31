@@ -9,101 +9,153 @@ class CriarContaPage extends StatefulWidget {
 }
 
 class _CriarContaPageState extends State<CriarContaPage> {
-  var txtNome = TextEditingController();
+  var txtNome  = TextEditingController();
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
+  var txtNick  = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('Bibliotec_S2'),
+          title: Text('Novo usuário'),
           centerTitle: true,
-          backgroundColor: Colors.green),
-      backgroundColor: Colors.green.shade400,
+          backgroundColor: Colors.blue.shade900),
+      backgroundColor: Colors.grey.shade300,
       body: Container(
         padding: EdgeInsets.all(50),
         child: ListView(
           children: [
-            TextField(
-              controller: txtNome,
-              style: TextStyle(
-                color: Colors.brown,
-                fontWeight: FontWeight.w300,
-              ),
-               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person,
-                color: Colors.orange.shade300),
-                labelText: 'Nome',
-                  focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.yellow.shade600, width: 3.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
-                      ),
-                      hintText: 'Nome:',
-                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
-                    ),
-            ),
-            SizedBox(height: 20),
-            TextField(
+             TextField(
               controller: txtEmail,
               style: TextStyle(
-                color: Colors.brown,
+                color: Colors.black,
                 fontWeight: FontWeight.w300,
               ),
                decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email,
-                color: Colors.orange.shade300),
+                color: Colors.black),
                 labelText: 'Email',
                   focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Colors.yellow.shade600, width: 3.0),
+                            color: Colors.black, width: 3.0),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
                       ),
                       hintText: 'email:',
-                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                      hintStyle: TextStyle(color: Colors.black),
                     ),
             ),
             SizedBox(height: 20),
+
+            //-------------------------------------------------------------------
+
+
+            TextField(
+              controller: txtNick,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w300,
+              ),
+               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person,
+                color: Colors.black),
+                labelText: 'Nickname',
+                  focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.black, width: 3.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      hintText: 'nome de usuario',
+                      hintStyle: TextStyle(color: Colors.black),
+                    ),
+            ),
+            SizedBox(height: 20),
+            
+            //-------------------------------------------------------------------
+
+
+            TextField(
+              controller: txtNome,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w300,
+              ),
+               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person,
+                color: Colors.black),
+                labelText: 'Nome',
+                  focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.black, width: 3.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      hintText: 'Nome:',
+                      hintStyle: TextStyle(color: Colors.black),
+                    ),
+            ),
+            SizedBox(height: 20),
+
+            //-------------------------------------------------------------------
+
+           
             TextField(
               obscureText: true,
               controller: txtSenha,
               style: TextStyle(
-                color: Colors.brown,
+                color: Colors.black,
                 fontWeight: FontWeight.w300,
               ),
                decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock,
-                color: Colors.orange.shade300),
+                color: Colors.black),
                 labelText: 'Senha',
                   focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Colors.yellow.shade600, width: 3.0),
+                            color: Colors.black, width: 3.0),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.yellow, width: 1.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1.0),
                       ),
                       hintText: 'Senha:',
-                      hintStyle: TextStyle(color: Colors.amberAccent.shade700),
+                      hintStyle: TextStyle(color: Colors.black),
                     ),
             ),
             SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+               
                 SizedBox(
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                    primary: Colors.green,),
+                    primary: Colors.blue.shade600,),
+                    child: Text('cancelar',
+                    style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                          textAlign: TextAlign.center,),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+
+                 SizedBox(
+                  width: 150,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    primary: Colors.blue.shade800,),
                     child: Text('criar',
                           style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          color: Colors.yellow),
+                          color: Colors.white),
                           textAlign: TextAlign.center,),
                     onPressed: () {
                       criarConta(
@@ -111,21 +163,6 @@ class _CriarContaPageState extends State<CriarContaPage> {
                         txtEmail.text,
                         txtSenha.text,
                       );
-                    },
-                  ),
-                ),
-                SizedBox(
-                  width: 150,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                    primary: Colors.green.shade600,),
-                    child: Text('cancelar',
-                    style: TextStyle(
-                          fontStyle: FontStyle.normal,
-                          color: Colors.yellow),
-                          textAlign: TextAlign.center,),
-                    onPressed: () {
-                      Navigator.pop(context);
                     },
                   ),
                 ),

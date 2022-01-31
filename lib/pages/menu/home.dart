@@ -41,10 +41,10 @@ class _HomePageState extends State<HomePage> {
       //
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.yellow.shade700,
+        backgroundColor: Colors.red.shade900,
 
-        selectedItemColor: Colors.green.shade800,
-        unselectedItemColor: Colors.black.withOpacity(.80),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.yellowAccent.withOpacity(.50),
         selectedFontSize: 16,
         unselectedFontSize: 16,
         iconSize: 40,
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           ),
          
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.account_box_outlined),
             label: 'Opções',
           ),
         ],
