@@ -117,15 +117,15 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                         ),
                         child: Center(
                             child: Text(
-                          ' demonstrar uma "plataforma" que adicione remova e edite publique e apresente historias\n\n ESTE É O APLICATIVO DE UM ESTUDANTE PARA TREINAR E EVOLUIR AS SUAS PROBRIAS HABILIDADES NA LINGUAGEM NO FRAMEWORK. \n\n APRECIE COM MODERAÇÃO.',
+                          ' demonstrar uma "plataforma" que adicione remova e edite publique e apresente historias\n\n É SÓ TER A HABILIDADE.',
                           style: TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 16,
                               color: Colors.yellow.shade700),
                         )))
                     : Container(
-                        width: 300,
-                        height: 300,
+                        width: 200,
+                        height: 200,
                         decoration: new BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.only(

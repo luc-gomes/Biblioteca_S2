@@ -4,14 +4,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 
-class NovaHistoria extends StatefulWidget {
-  const NovaHistoria({Key? key}) : super(key: key);
+class Tijolometro extends StatefulWidget {
+  const Tijolometro({ Key? key }) : super(key: key);
 
   @override
-  NovaHistoriaState createState() => NovaHistoriaState();
+  _TijolometroState createState() => _TijolometroState();
 }
 
-class NovaHistoriaState extends State<NovaHistoria> {
+class _TijolometroState extends State<Tijolometro> {
+  @override
+
+  
   var txtID = NumberInputElement ();
   var txtTitulo = TextEditingController();
   var txtSubtitulo = TextEditingController();

@@ -12,6 +12,8 @@ import 'package:bibliotec_s2/View/Consumidor/minha_conta.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'View/Criador/construtor_historia.dart';
+import 'View/interface de introdução.dart';
 import 'arquivo morto/cadastro.dart';
 import 'pages/Formularios/criar_conta.dart';
 import 'pages/login.dart';
@@ -39,6 +41,8 @@ Future<void> main() async {
         '/sobre': (context) => Tela_sobre(),
          '/Minha_conta': (context) => Minha_conta(),
           '/AcervoListview': (context) => lista_acervo_listview(),
+          '/Intro': (context) => Introapp(),
+          '/Tijolometro': (context) => Tijolometro(),
 
 
          
