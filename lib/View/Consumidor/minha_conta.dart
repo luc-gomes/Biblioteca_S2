@@ -1,3 +1,7 @@
+/* objetivo: fazer um menu de conta de usuario para mexer em opçoes de visualização e editar informaçoes pessoais da conta*/
+
+
+
 // ignore_for_file: camel_case_types
 
 import 'package:bibliotec_s2/pages/login.dart';

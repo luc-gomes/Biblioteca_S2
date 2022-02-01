@@ -2,20 +2,20 @@
 //import 'dart:js';
 
 import 'package:bibliotec_s2/Widgets/blocas002.dart';
-import 'package:bibliotec_s2/pages/Tela_sobre.dart';
-import 'package:bibliotec_s2/pages/listar_acervo.dart';
-import 'package:bibliotec_s2/pages/menu/home.dart';
-import 'package:bibliotec_s2/pages/menu/listadelivros.dart';
-import 'package:bibliotec_s2/pages/menu/menu_do_usuario.dart';
-import 'package:bibliotec_s2/pages/Formularios/nova_historia.dart';
-import 'package:bibliotec_s2/pages/menu/minha_conta.dart';
+import 'package:bibliotec_s2/View/Consumidor/Tela_sobre.dart';
+import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
+import 'package:bibliotec_s2/View/Consumidor/home.dart';
+import 'package:bibliotec_s2/View/Consumidor/listadelivros.dart';
+import 'package:bibliotec_s2/View/Consumidor/menu_do_usuario.dart';
+import 'package:bibliotec_s2/View/Criador/nova_historia.dart';
+import 'package:bibliotec_s2/View/Consumidor/minha_conta.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/Formularios/cadastro.dart';
+import 'arquivo morto/cadastro.dart';
 import 'pages/Formularios/criar_conta.dart';
 import 'pages/login.dart';
-import 'pages/menu/menu_do_usuario.dart';
+import 'View/Consumidor/menu_do_usuario.dart';
 Future<void> main() async {
   //
   // INICIALIZAR OS Plugins

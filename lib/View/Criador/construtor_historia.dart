@@ -1,43 +1,55 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 
 class NovaHistoria extends StatefulWidget {
-  const NovaHistoria({ Key? key }) : super(key: key);
+  const NovaHistoria({Key? key}) : super(key: key);
 
   @override
-   NovaHistoriaState createState() =>  NovaHistoriaState();
+  NovaHistoriaState createState() => NovaHistoriaState();
 }
 
-class  NovaHistoriaState extends State<NovaHistoria> {
+class NovaHistoriaState extends State<NovaHistoria> {
+  var txtID = NumberInputElement ();
   var txtTitulo = TextEditingController();
   var txtSubtitulo = TextEditingController();
   var txtAutor = TextEditingController();
   var txtSinopse = TextEditingController();
+  var txtTexto = TextEditingController();
   //
   // RETORNAR um ÚNICO DOCUMENTO a partir do ID
   //
-  getDocumentById(id) async{
-    await FirebaseFirestore.instance.collection('Historias')
-      .doc(id).get().then((doc) {
-        txtTitulo.text = doc.get('titulo');
-        txtSubtitulo.text = doc.get('subtitulo');
-        txtAutor.text = doc.get('autor');
-        txtSinopse.text = doc.get('sinopse');
-      });
+  getDocumentById(id) async {
+    await FirebaseFirestore.instance
+        .collection('Historias')
+        .doc(id)
+        .get()
+        .then((doc) {
+      txtID.text = doc.get('numero');
+      txtTitulo.text = doc.get('titulo');
+      txtTitulo.text = doc.get('subtitulo');
+      txtSubtitulo.text = doc.get('texto');
+      
+    });
   }
- 
- 
+
   @override
   Widget build(BuildContext context) {
-  
     //
     // RECUPERAR o ID do Café que foi selecionado pelo usuário
     //
     var id = ModalRoute.of(context)?.settings.arguments;
 
-    if (id != null){ // TESTE DE EXISTENCIA DO DOCUMENTO NA BASE
-      if (txtTitulo.text.isEmpty && txtSubtitulo.text.isEmpty && txtAutor.text.isEmpty && txtSinopse.text.isEmpty){
+    if (id != null) {
+      // TESTE DE EXISTENCIA DO DOCUMENTO NA BASE
+      if (
+          
+          txtTitulo.text.isEmpty &&
+          txtSubtitulo.text.isEmpty &&
+          txtTexto.text.isEmpty 
+          ) {
         getDocumentById(id);
       }
     }
@@ -46,16 +58,17 @@ class  NovaHistoriaState extends State<NovaHistoria> {
     //
     return Scaffold(
       appBar: AppBar(
-        title: Text('Biblioteca_S2'),
+        title: Text('tijolometro'),
         centerTitle: true,
-        backgroundColor: Colors.green.shade600,
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
       ),
-      backgroundColor: Colors.green.shade400,
+      backgroundColor: Colors.white,
       body: Container(
         padding: EdgeInsets.all(30),
         child: ListView(children: [
-          TextField( // TITULO
+          TextField(
+            // TITULO
             controller: txtTitulo,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -64,7 +77,8 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 30),
-          TextField( // SUBTITULO
+          TextField(
+            // SUBTITULO
             controller: txtSubtitulo,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -73,7 +87,8 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 50),
-          TextField( // AUTOR
+          TextField(
+            // AUTOR
             controller: txtAutor,
             style: TextStyle(color: Colors.yellow, fontSize: 36),
             decoration: InputDecoration(
@@ -82,8 +97,8 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 50),
-
-          TextField(// SINOPSE
+          TextField(
+            // SINOPSE
             maxLines: 5,
             maxLength: 100,
             controller: txtSinopse,
@@ -94,21 +109,23 @@ class  NovaHistoriaState extends State<NovaHistoria> {
             ),
           ),
           SizedBox(height: 50),
-          Row( // LINHA COM BOTOES DE AÇÃO
+          Row(
+            // LINHA COM BOTOES DE AÇÃO
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container( // BOTOES DE AÇÃO
+              Container(
+                // BOTOES DE AÇÃO
                 padding: EdgeInsets.all(5),
                 width: 150,
-                child: ElevatedButton(//BTN SALVAR
-                   child: Text('Salvar',
-                   style: TextStyle(
-                           color: Colors.orange),
-                      textAlign: TextAlign.center,
-                      ),
+                child: ElevatedButton(
+                  //BTN SALVAR
+                  child: Text(
+                    'Salvar',
+                    style: TextStyle(color: Colors.orange),
+                    textAlign: TextAlign.center,
+                  ),
                   onPressed: () {
-
-                    if (id == null){
+                    if (id == null) {
                       //
                       // ADICIONAR um NOVO DOCUMENTO
                       //
@@ -118,12 +135,15 @@ class  NovaHistoriaState extends State<NovaHistoria> {
                         'subtitulo': txtSubtitulo.text,
                         'titulo': txtTitulo.text,
                       });
-                    }else{
+                    } else {
                       //
                       // ATUALIZAR UM DOCUMENTO EXISTENTE
                       //
-                      FirebaseFirestore.instance.collection('Historias').doc(id.toString()).set({
-                         'autor': txtAutor.text,
+                      FirebaseFirestore.instance
+                          .collection('testehistoria')
+                          .doc(id.toString())
+                          .set({
+                        'autor': txtAutor.text,
                         'sinopse': txtSinopse.text,
                         'subtitulo': txtSubtitulo.text,
                         'titulo': txtTitulo.text,
@@ -137,19 +157,21 @@ class  NovaHistoriaState extends State<NovaHistoria> {
                       ),
                     );
                     Navigator.pop(context);
-                    },
+                  },
                 ),
               ),
               Container(
                 padding: EdgeInsets.all(5),
                 width: 150,
-                child: ElevatedButton( //BTN CANCELAR
-                   child: Text('cancelar',
-                   style: TextStyle(
-                            color: Colors.orange),
-                            textAlign: TextAlign.center,),
-                    onPressed: () {
-                      Navigator.pop(context);
+                child: ElevatedButton(
+                  //BTN CANCELAR
+                  child: Text(
+                    'cancelar',
+                    style: TextStyle(color: Colors.orange),
+                    textAlign: TextAlign.center,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
                   },
                 ),
               ),
@@ -158,6 +180,5 @@ class  NovaHistoriaState extends State<NovaHistoria> {
         ]),
       ),
     );
-
   }
 }

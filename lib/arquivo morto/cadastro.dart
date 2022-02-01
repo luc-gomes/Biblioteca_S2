@@ -1,3 +1,6 @@
+/* neste documento a versão base inicial retirada do app cafes*/
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 // versão não sendo utilizada -> nova_historia.dart

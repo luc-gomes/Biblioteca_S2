@@ -46,10 +46,10 @@ class WidgetHistoria extends StatelessWidget {
         ),
 
 
-         ],
-       ),),
-       
-      ],
+       ],
+       ),
+       ),
+       ],
       ),
 
     );
