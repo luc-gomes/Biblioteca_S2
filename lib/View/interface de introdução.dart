@@ -73,7 +73,7 @@ SizedBox(
                  minimumSize: Size(300, 70), 
                 ),
                 onPressed: () {
-                     Navigator.pushNamed(context, '/Tijolometro');
+                   //  Navigator.pushNamed(context, '/Tijolometro');
                 },
                 child: Text('criador')),
         ),
