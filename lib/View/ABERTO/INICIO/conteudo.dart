@@ -91,15 +91,15 @@ class _ViewPostState extends State<ViewPost> {
                       padding: const EdgeInsets.all(5),
                       width: 150,
                       child: ElevatedButton(
-                        //BTN CANCELAR
-                        child: const Text(
-                          'cancelar',
-                          style: TextStyle(color: Colors.orange),
-                          textAlign: TextAlign.center,
-                        ),
+                        style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 202, 77, 61),
+                        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  ),
+                  child: Text('voltar'),
                         onPressed: () {
                           Navigator.pop(context);
-                        },
+                        }, 
+                        
                       ),
                     ),
                   ],
