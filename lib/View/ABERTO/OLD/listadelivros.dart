@@ -42,26 +42,46 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
               width: 30,
           ),
               ),
-            child:Image.asset('lib/Img/thumbnail.jpg'),
+            child:Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
         ),         
-      Row(
-        children: [
-          IconButton(
-            icon: const Icon(Icons.delete,
-            size: 18.0,
+      Container(
+        margin: EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              border: Border.all(
+              color: Colors.orange.shade300,
+              width: 1,),
+              ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.delete,
+              size: 35.0,
+              ),
+              onPressed: () {
+               historias.doc(item.id).delete();
+              },
             ),
-            onPressed: () {
-             historias.doc(item.id).delete();
-            },
-          ),
-          IconButton(          
-             icon: const Icon(Icons.edit,
-             size: 18.0,
-             ),            
-            onPressed: (){
-            Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
-          },),
-        ],
+            IconButton(
+              icon: const Icon(Icons.input,
+              size: 35.0,
+              ),
+              onPressed: () {
+               Navigator.pushNamed(context, '/POST', arguments: item.id);
+              },
+
+              
+            ),
+            IconButton(          
+               icon: const Icon(Icons.edit,
+               size: 35.0,
+               ),            
+              onPressed: (){
+              Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
+            },),
+          ],
+        ),
       ),    
         ],
       ),

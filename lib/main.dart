@@ -2,6 +2,7 @@
 //import 'dart:js';
 
 import 'package:bibliotec_s2/View/ABERTO/INICIO/Tela_inicial.dart';
+import 'package:bibliotec_s2/View/ABERTO/INICIO/conteudo.dart';
 import 'package:bibliotec_s2/View/ABERTO/OLD/Tela_sobre.dart';
 import 'package:bibliotec_s2/View/ABERTO/OLD/home.dart';
 import 'package:bibliotec_s2/View/ABERTO/OLD/listadelivros.dart';
@@ -51,9 +52,14 @@ Future<void> main() async {
           '/Intro': (context) => Introapp(),
           '/Tijolometro': (context) => Tijolometro(),
 
+
+
           //-------------------------------------------------------------------
           //-------------NEW
           '/TELA_INICIAL': (context) => Tela_Inicial_ABERTO(),
+          '/POST': (context) => ViewPost(),
+
+          
 
            
 

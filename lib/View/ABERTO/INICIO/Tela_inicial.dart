@@ -26,47 +26,59 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
     String titulo = item.data()['titulo'];
     String subtitulo = item.data()['subtitulo'];
     return Container(
+      margin: EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              border: Border.all(
+                color: Colors.orange.shade300,
+                width: 1,
+              ),
+            ),
       child: Column(
         children: [
 
-          Container(
-            //TITULO
+          Container(  //TITULO
+          
             child: Text(
               titulo,
-              style: const TextStyle(fontSize: 25),
+              style: const TextStyle(
+                fontSize: 25,
+                color: Color.fromARGB(255, 236, 205, 64),
+                fontWeight: FontWeight.bold
+                ),
             ),
           ),
-          Container(
-            //SUBTITULO
+          Container(//SUBTITULO
             child: Text(
               subtitulo,
-              style: const TextStyle(fontSize: 18),
+              style: const TextStyle(
+                fontSize: 16,
+                color: Color.fromARGB(255, 236, 205, 64),
+                fontWeight: FontWeight.normal
+                ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(20.0),
+          Container(// imagem
+            margin: EdgeInsets.all(50.0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
               border: Border.all(
                 color: Colors.orange.shade300,
-                width: 30,
+                width: 18,
               ),
             ),
-            child: Image.asset('lib/Img/thumbnail.jpg'),
+            child: Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
           ),
-          
-       Row(
+          Row(
          mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              
+            children: [              
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                    primary: Color.fromARGB(255, 202, 77, 61),
+                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/esqueleto_publicacao',
-                        arguments: item.id);
+                    Navigator.pushNamed(context, '/POST',arguments: item.id);
                   },
                   child: Text('Continuar lendo'))
             ],

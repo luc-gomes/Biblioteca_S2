@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.green),
       backgroundColor: Colors.lightBlue,*/
       body: Container(
-        color: Colors.blueAccent.shade100,
+        color: Color.fromARGB(255, 0, 80, 209),
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 border: Border.all(
-                  color: Colors.lightBlueAccent.shade700,
+                  color: Color.fromARGB(255, 243, 183, 77),
                   width: 10,
                 ),
                 color: Colors.white,
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                       // LOGO E NOME DO APP
                       children: [
                         Text(
-                          'Sccapolindo',
+                          'Biblioteca_s2',
                           style: TextStyle(
                               fontSize: 42,
                               fontStyle: FontStyle.italic,
@@ -123,14 +123,14 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 5.0, color: Colors.white,),
-                  primary: Colors.lightBlue,
+                  side: BorderSide(width: 3.0, color: Colors.white,),
+                  primary: Color.fromARGB(255, 255, 0, 0),
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(
                   'entrar',
                   style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Colors.black),
+                      fontStyle: FontStyle.normal, color: Color.fromARGB(255, 255, 255, 255)),
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
@@ -146,18 +146,18 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 5.0, color: Colors.white,),
-                  primary: Colors.lightBlue,
+                  side: BorderSide(width: 3.0, color: Colors.white,),
+                  primary: Color.fromARGB(255, 231, 62, 20),
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(
                   'Criar conta',
                   style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Colors.black),
+                      fontStyle: FontStyle.normal, color: Color.fromARGB(255, 255, 255, 255)),
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/criar_conta');
+                  //Navigator.pushNamed(context, '/criar_conta');
                 },
               ),
             ),

@@ -18,7 +18,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
       backgroundColor: Colors.red,
       ),
       body:
-      //-----------------------------------------body----------------------------
+//------------------------------------------------------------------------------
           Container(
             color: Colors.blue.shade700,
             child: GridView.count(          
@@ -28,14 +28,12 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
             mainAxisSpacing: 10,
             crossAxisCount: 2,
             children: <Widget>[
-
-
-              //---------------------------------------blocos menu---------------
-              Container(// NOVA HISTORIA
+//---------------------------------------blocos menu----------------------------
+              Container(//Blocos 0 - Nova Historia
                 padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
-                    Container(//INCONE
+                    Container(
                       child: IconButton(
                         icon: Icon(Icons.add),
                         iconSize: 60,
@@ -51,7 +49,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     Container(//TEXTO
                       
                       child: Text(
-                        'Nova historia',
+                        'Cadastar nova historia',
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
@@ -63,9 +61,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade200,
               ),
-
-              //---------------------------------------bloco1--------------------
-              Container(// minhas historias
+//------------------------------------------------------------------------------
+              Container(//Blocos 1 - Lista de historias
                 padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
@@ -86,7 +83,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     Container(//TEXTO
                       
                       child: Text(
-                        'Minhas Hitorias',
+                        'Lista de historias',
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
@@ -98,9 +95,110 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade200,
               ),
+//------------------------------------------------------------------------------
+              Container(//Blocos 2 - Catalogo aberto
 
-              //-------------------------------------------bloco2---------------
-              Container( // ajuda
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    Container(//INCONE
+                      child: IconButton(
+                        icon: Icon(Icons.view_day_outlined),
+                        iconSize: 60,
+                        color: Colors.lightGreen.shade900,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/Tela_Inicial');
+                          setState(() {
+                          });
+                        },
+                      ),
+                    ),
+                    Container(// TEXTO
+                       
+                      child: Text(
+                        'catalogo',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                color: Colors.yellow.shade400,
+              ),
+//------------------------------------------------------------------------------
+              Container(//Blocos 3 - Usuarios
+
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    Container(//INCONE
+                      child: IconButton(
+                        icon: Icon(Icons.supervised_user_circle),
+                        iconSize: 60,
+                        color: Colors.lightGreen.shade900,
+                        onPressed: () {
+                        //  Navigator.pushNamed(context, '/sobre');
+                          setState(() {
+                             
+               
+                          });
+                        },
+                      ),
+                    ),
+                    Container(// TEXTO
+                       
+                      child: Text(
+                        'usuarios',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                color: Colors.yellow.shade400,
+              ),
+//------------------------------------------------------------------------------
+              Container(//Blocos 4 - Sobre
+
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    Container(//INCONE
+                      child: IconButton(
+                        icon: Icon(Icons.info_rounded),
+                        iconSize: 60,
+                        color: Colors.lightGreen.shade900,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/sobre');
+                          setState(() {
+                                                 
+                          });
+                        },
+                      ),
+                    ),
+                    Container(// TEXTO
+                       
+                      child: Text(
+                        'sobre',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                color: Colors.yellow.shade400,
+              ),
+//------------------------------------------------------------------------------              
+              Container(//Blocos 5 - Ajuda
                 
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -133,51 +231,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade400,
               ),
-              //---------------------------------------bloco3-------------------
-              Container(//sobre
-
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    Container(//INCONE
-                      child: IconButton(
-                        icon: Icon(Icons.info_rounded),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/sobre');
-                          setState(() {
-                             
-                        /*    var obj = Dados(
-                             var nome.text,
-                              email.text,
-                              nickname.text,
-                            );
-                            
-                            */
-                          
-                          });
-                        },
-                      ),
-                    ),
-                    Container(// TEXTO
-                       
-                      child: Text(
-                        'sobre',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontStyle: FontStyle.normal,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                color: Colors.yellow.shade400,
-              ),
-
-              //-----------------------------------bloco4-----------------------
-              Container(//conta
+//------------------------------------------------------------------------------
+              Container(//Blocos 6 - Conta
  
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -214,8 +269,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 color: Colors.yellow.shade600,
               ),
 
-              //-----------------------------------bloco5------------------------
-              Container(//Log_out
+//------------------------------------------------------------------------------
+              Container(//Blocos 7 - Log_out
          
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -250,36 +305,10 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                 ),
                 color: Colors.yellow.shade600,
               ),
-              //---------------------------------------------------------------
+//------------------------------------------------------------------------------
             ],
     ),
           ),
       );
   }
 }
-
-/*
-class Menu_user extends StatefulWidget {
-  const Menu_user({ Key? key }) : super(key: key);
-
-  @override
-  _Menu_userState createState() => _Menu_userState();
-}
-
-// ignore: camel_case_types
-class _Menu_userState extends State<Menu_user> {
-  
-  
-
-  bottomNavigationBar() => null;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:
-
-
-   );
-  }
-}
-*/
