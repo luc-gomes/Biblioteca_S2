@@ -146,7 +146,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
+                  backgroundColor: Colors.green,
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 onPressed: () {

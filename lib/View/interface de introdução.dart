@@ -34,7 +34,7 @@ class _IntroappState extends State<Introapp> {
                     ),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.green,
+                          backgroundColor: Colors.green,
                           //  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 40),
                           minimumSize: Size(300, 70),
                         ),
@@ -58,7 +58,7 @@ class _IntroappState extends State<Introapp> {
                     ),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.green,
+                          backgroundColor: Colors.green,
                           //  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 40),
                           minimumSize: Size(300, 70),
                         ),

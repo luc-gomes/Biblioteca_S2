@@ -14,6 +14,7 @@ class _TijolometroState extends State<Tijolometro> {
   @override
 
   
+  // ignore: override_on_non_overriding_member
   var txtTitulo = TextEditingController();
   var txtSubtitulo = TextEditingController();
   var txtAutor = TextEditingController();

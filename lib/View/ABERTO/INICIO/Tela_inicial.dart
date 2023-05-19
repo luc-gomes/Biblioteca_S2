@@ -74,7 +74,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             children: [              
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 202, 77, 61),
+                    backgroundColor: Color.fromARGB(255, 202, 77, 61),
                     padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   ),
                   onPressed: () {

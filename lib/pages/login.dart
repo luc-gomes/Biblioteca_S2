@@ -123,8 +123,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 3.0, color: Colors.white,),
-                  primary: Color.fromARGB(255, 255, 0, 0),
+                  side: BorderSide(width: 3.0, color: Colors.white,), backgroundColor: Color.fromARGB(255, 255, 0, 0),
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(
@@ -146,8 +145,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 3.0, color: Colors.white,),
-                  primary: Color.fromARGB(255, 231, 62, 20),
+                  side: BorderSide(width: 3.0, color: Colors.white,), backgroundColor: Color.fromARGB(255, 231, 62, 20),
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 child: Text(

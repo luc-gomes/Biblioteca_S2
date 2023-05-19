@@ -92,7 +92,7 @@ class _ViewPostState extends State<ViewPost> {
                       width: 150,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 202, 77, 61),
+                        backgroundColor: Color.fromARGB(255, 202, 77, 61),
                         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   ),
                   child: Text('voltar'),
