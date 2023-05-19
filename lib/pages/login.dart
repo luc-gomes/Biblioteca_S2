@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                primary: Colors.green,
+                backgroundColor: Colors.green,
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),),
                 child: Text('entrar',
                 style: TextStyle(
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                primary: Colors.green.shade700,
+                backgroundColor: Colors.green.shade700,
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),),
                 child: Text('Criar conta',
                 style: TextStyle(

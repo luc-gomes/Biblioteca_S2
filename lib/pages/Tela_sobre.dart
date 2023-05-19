@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:flutter/painting.dart';
+//import 'package:flutter/painting.dart';
 
 // ignore: camel_case_types
 class Tela_sobre extends StatefulWidget {
@@ -145,7 +145,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
             ),
             ElevatedButton( 
               style: ElevatedButton.styleFrom(
-                primary: Colors.green,
+                backgroundColor: Colors.green,
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),),
                 onPressed: () {
                   if (_status == AnimationStatus.dismissed) {

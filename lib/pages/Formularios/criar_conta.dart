@@ -99,7 +99,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                    primary: Colors.green,),
+                    backgroundColor: Colors.green,),
                     child: Text('criar',
                           style: TextStyle(
                           fontStyle: FontStyle.normal,
@@ -118,7 +118,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                    primary: Colors.green.shade600,),
+                    backgroundColor: Colors.green.shade600,),
                     child: Text('cancelar',
                     style: TextStyle(
                           fontStyle: FontStyle.normal,

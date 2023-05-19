@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'pages/Formularios/cadastro.dart';
 import 'pages/Formularios/criar_conta.dart';
 import 'pages/login.dart';
-import 'pages/menu/menu_do_usuario.dart';
+//import 'pages/menu/menu_do_usuario.dart';
 Future<void> main() async {
   //
   // INICIALIZAR OS Plugins
