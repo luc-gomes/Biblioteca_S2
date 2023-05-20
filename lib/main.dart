@@ -13,11 +13,12 @@ import 'package:bibliotec_s2/View/USER/OLD/construtor_historia.dart';
 import 'package:bibliotec_s2/View/USER/OLD/nova_historia.dart';
 import 'package:bibliotec_s2/Widgets/blocas002.dart';
 import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
- 
+ // imports firebse
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
- 
+import 'firebase_options.dart';
+import 'package:firebase_core_web/firebase_core_web.dart';
+ // imports firebase end
 import 'View/interface de introdução.dart';
 import 'arquivo morto/cadastro.dart';
 import 'pages/Formularios/criar_conta.dart';
@@ -28,7 +29,9 @@ Future<void> main() async {
   // INICIALIZAR OS Plugins
   //
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     MaterialApp(
