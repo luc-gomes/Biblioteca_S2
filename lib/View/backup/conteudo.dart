@@ -1,9 +1,8 @@
-// ignore_for_file: file_names, avoid_unnecessary_containers, prefer_const_constructors, non_constant_identifier_names
+// ignore_for_file: file_names, avoid_unnecessary_containers, prefer_const_constructors
 
-//import 'package:cloud_firestore/cloud_firestore.dart'
-    //show FirebaseFirestore, QuerySnapshot;
+import 'package:cloud_firestore/cloud_firestore.dart' show FirebaseFirestore, QuerySnapshot;
 import 'package:flutter/material.dart';
-import 'dart:core';
+
 class ViewPost extends StatefulWidget {
   const ViewPost({Key? key}) : super(key: key);
 
@@ -14,22 +13,22 @@ class ViewPost extends StatefulWidget {
 class _ViewPostState extends State<ViewPost> {
   var conteudo;
 
+@override
+  void initState() {
+    super.initState();
+
+    conteudo = FirebaseFirestore.instance.collection('Historias');
+    //.where('usuario', isEqualTo: 'joao@gmail.com');
+  }
   
-//--------------------widget buid----------------------------
-  @override
-  Widget build(BuildContext context) {
-
-    final data = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>  ;
-
-   
-    String titulo_pub = data['titulo_pub'];
-    String subtitulo_pub = data['subtitulo_pub'];
-    String autor_pub = data['autor_pub'];
-    String texto = data['texto'];
-    
+  exibirItemColecao(item) {
+    // função re retorna um listtile
+    String titulo = item.data()['titulo'];
+    String autor = item.data()['autor'];
+    String subtitulo = item.data()['subtitulo'];
+    String texto = item.data()['sinopse'];
 
     return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
         padding: const EdgeInsets.all(30),
         child: ListView(
           children: [
@@ -39,18 +38,32 @@ class _ViewPostState extends State<ViewPost> {
                   children: [
                     Container(
                       child: Text(
-                        titulo_pub,
+                        titulo,
                         style: TextStyle(height: 5, fontSize: 25),
                       ),
                     ),
                     Container(
                       child: Text(
-                        subtitulo_pub,
+                        subtitulo,
                         style: const TextStyle(
                             fontStyle: FontStyle.italic, fontSize: 16),
                       ),
                     ),
-
+                    Container(
+                      margin: EdgeInsets.all(13.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        border: Border.all(
+                          color: Colors.transparent,
+                          width: 7,
+                        ),
+                      ),
+                      child: Text(
+                        autor,
+                        style: const TextStyle(
+                            fontStyle: FontStyle.italic, fontSize: 16),
+                      ),
+                    ),
                     Container(
                       margin: EdgeInsets.all(13.0),
                       decoration: BoxDecoration(
@@ -66,21 +79,6 @@ class _ViewPostState extends State<ViewPost> {
                             fontStyle: FontStyle.italic, fontSize: 16),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.all(13.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                        border: Border.all(
-                          color: Colors.transparent,
-                          width: 7,
-                        ),
-                      ),
-                      child: Text(
-                        autor_pub,
-                        style: const TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 16, color: Colors.deepOrangeAccent),
-                      ),
-                    ),
                   ],
                 ),
                 Row(
@@ -92,14 +90,14 @@ class _ViewPostState extends State<ViewPost> {
                       width: 150,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 202, 77, 61),
-                        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  ),
-                  child: Text('voltar'),
+                          backgroundColor: Color.fromARGB(255, 202, 77, 61),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 10),
+                        ),
+                        child: Text('voltar'),
                         onPressed: () {
                           Navigator.pop(context);
-                        }, 
-                        
+                        },
                       ),
                     ),
                   ],
@@ -109,6 +107,45 @@ class _ViewPostState extends State<ViewPost> {
           ],
         ),
       );
-    
+  }
+
+//--------------------widget buid----------------------------
+  @override
+  Widget build(BuildContext context) {
+   //var id = ModalRoute.of(context)?.settings.arguments;
+
+     
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: StreamBuilder<QuerySnapshot>(
+          // listas docs coleção
+          //fonte de dados (coleção)
+          stream: conteudo.snapshots(),
+          //exibir os dados retornados
+          builder: (context, snapshot) {
+            //verificar o estado da conexão
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return const Center(
+                  child: Text('Não foi possível conectar ao Firestore'),
+                );
+
+              case ConnectionState.waiting:
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+
+              //se os dados foram recebidos com sucesso
+              default:
+                final dados = snapshot.requireData;
+                return ListView.builder(
+                    itemCount: dados.size,
+                    itemBuilder: (context, index) {
+                      return exibirItemColecao(dados.docs[index]);
+                    });
+            }
+          }),
+    );
   }
 }

@@ -17,7 +17,7 @@ import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
-import 'package:firebase_core_web/firebase_core_web.dart';
+//import 'package:firebase_core_web/firebase_core_web.dart';
  // imports firebase end
 import 'View/interface de introdução.dart';
 import 'arquivo morto/cadastro.dart';

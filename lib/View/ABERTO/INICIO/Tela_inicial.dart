@@ -78,7 +78,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                     padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/POST',arguments: item.id);
+                    Navigator.pushNamed(context, '/POST',arguments: item);
                   },
                   child: Text('Continuar lendo'))
             ],

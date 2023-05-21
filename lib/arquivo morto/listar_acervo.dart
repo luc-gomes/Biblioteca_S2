@@ -40,11 +40,31 @@ class _Listar_acervoState extends State<Listar_acervo> {
         autor,
         style: const TextStyle(fontSize: 18),
       ),
-      trailing: IconButton(
-        icon: const Icon(Icons.delete),
-        onPressed: () {
-          cafes.doc(item.id).delete();
-        },
+      trailing: SizedBox(
+        width: 100,
+        child: Row(
+          children: [
+            IconButton(
+                icon: Icon(Icons.ad_units),
+                onPressed: () async {
+                  //FirebaseAuth.instance.signOut();
+                  Navigator.pushNamed(context, '/POST',
+                      arguments: ({
+                        "uid": item.id,
+                        "titulo_pub": titulo,
+                        "autor_pub": autor,
+                        "subtitulo_pub": item.data()['subtitulo'],
+                        "texto": item.data()['sinopse']
+                      }));
+                }),
+            IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                cafes.doc(item.id).delete();
+              },
+            )
+          ],
+        ),
       ),
       onTap: () {
         Navigator.pushNamed(context, '/NovaHistoria', arguments: item.id);
@@ -52,20 +72,22 @@ class _Listar_acervoState extends State<Listar_acervo> {
     );
   }
 
+//--------------------widget buid----------------------------
   @override
   Widget build(BuildContext context) {
+    //var id = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('acervo'),
         centerTitle: true,
-        backgroundColor: Colors.lightGreen.shade700,
+        backgroundColor: Color.fromARGB(255, 255, 0, 0),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: Icon(Icons.logout_outlined),
             onPressed: () async {
               FirebaseAuth.instance.signOut();
-              Navigator.pushReplacementNamed(context, '/login');
+              Navigator.pushReplacementNamed(context, '/menu_opcoes');
             },
           ),
         ],
