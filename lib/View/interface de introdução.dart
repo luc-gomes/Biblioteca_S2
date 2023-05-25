@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-// ignore: camel_case_types
 class Introapp extends StatefulWidget {
   const Introapp({Key? key}) : super(key: key);
 

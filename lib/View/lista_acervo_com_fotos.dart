@@ -67,8 +67,11 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
               icon: const Icon(Icons.input,
               size: 35.0,
               ),
-              onPressed: () {
-               Navigator.pushNamed(context, '/POST', arguments: item.id);
+              onPressed: ()                 async {
+                  Navigator.pushNamed(context, '/POST',
+                      arguments: ({"uid": item.id,"titulo_pub": titulo,
+                        "autor_pub": item.data()['autor'],"subtitulo_pub": item.data()['subtitulo'],
+                        "texto": item.data()['sinopse']}));
               },
 
               
@@ -96,15 +99,7 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
         centerTitle: true,
         backgroundColor: Colors.red,
         automaticallyImplyLeading: false,
-        actions: [
-         /* IconButton(
-            icon: Icon(Icons.logout_outlined),
-            onPressed: () async {
-              FirebaseAuth.instance.signOut();
-              Navigator.pushReplacementNamed(context, '/login');
-            },
-          ),*/
-        ],
+        actions: [],
       ),
       backgroundColor: Colors.blue.shade900,
       body: StreamBuilder<QuerySnapshot>(          
@@ -128,14 +123,6 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
                     });
             }
           }),
-     /* floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.yellow.shade600,
-        backgroundColor: Colors.green.shade600,
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.pushNamed(context, '/NovaHistoria');
-        },
-      ),*/
     );
   }
 }

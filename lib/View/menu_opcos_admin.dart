@@ -8,7 +8,6 @@ class Painel_de_colecoes extends StatefulWidget {
   @override
   _Painel_de_colecoesState createState() => _Painel_de_colecoesState();
 }
-
 // ignore: camel_case_types
 class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
   @override
@@ -107,7 +106,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                         iconSize: 60,
                         color: Colors.lightGreen.shade900,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/Tela_Inicial');
+                          Navigator.pushNamed(context, '/AcervoListview');
                           setState(() {
                           });
                         },

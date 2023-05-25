@@ -1,22 +1,16 @@
 // ignore_for_file: non_constant_identifier_names, file_names
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 class NovaHistoria extends StatefulWidget {
   const NovaHistoria({ Key? key }) : super(key: key);
-
   @override
   State<NovaHistoria> createState() => _NovaHistoriaState();
 }
-
 class _NovaHistoriaState extends State<NovaHistoria> {
- 
   var txtTitulo = TextEditingController();
   var txtSubtitulo = TextEditingController();
   var txtAutor = TextEditingController();
   var txtSinopse = TextEditingController();
-  
   getDocumentById(id) async {
     await FirebaseFirestore.instance
         .collection('Historias')
@@ -31,16 +25,10 @@ class _NovaHistoriaState extends State<NovaHistoria> {
     
     });
   }
-
   @override
   Widget build(BuildContext context) {
-    //
-    // RECUPERAR o ID do Café que foi selecionado pelo usuário
-    //
     var id = ModalRoute.of(context)?.settings.arguments;
-
     if (id != null) {
-      // TESTE DE EXISTENCIA DO DOCUMENTO NA BASE
       if (txtTitulo.text.isEmpty &&
           txtSubtitulo.text.isEmpty &&
           txtAutor.text.isEmpty &&
@@ -48,16 +36,8 @@ class _NovaHistoriaState extends State<NovaHistoria> {
         getDocumentById(id);
       }
     }
-    //
-    // INICIO DA INTERFACE DE CADASTRO DE NOVAS "HISTORIAS"
-    //
-
-    //metodo publico dentro da classe
     Future<void> SalvarDocumento() async {
       if (id == null) {
-        //
-        // ADICIONAR um NOVO DOCUMENTO
-        //
         FirebaseFirestore.instance.collection('Historias').add({
           'autor': txtAutor.text,
           'sinopse': txtSinopse.text,
@@ -65,9 +45,6 @@ class _NovaHistoriaState extends State<NovaHistoria> {
           'titulo': txtTitulo.text,
         });
       } else {
-        //
-        // ATUALIZAR UM DOCUMENTO EXISTENTE
-        //
         FirebaseFirestore.instance
             .collection('Historias')
             .doc(id.toString())
@@ -78,7 +55,6 @@ class _NovaHistoriaState extends State<NovaHistoria> {
           'titulo': txtTitulo.text,
         });
       }
-
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Operação realizada com sucesso!'),
@@ -87,7 +63,6 @@ class _NovaHistoriaState extends State<NovaHistoria> {
       );
       Navigator.pop(context);
     }
-
     return Scaffold(
       // ignore: unnecessary_new
       appBar: new AppBar(

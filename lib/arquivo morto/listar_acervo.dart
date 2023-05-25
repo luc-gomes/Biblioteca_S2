@@ -46,16 +46,12 @@ class _Listar_acervoState extends State<Listar_acervo> {
           children: [
             IconButton(
                 icon: Icon(Icons.ad_units),
-                onPressed: () async {
-                  //FirebaseAuth.instance.signOut();
+                onPressed: () 
+                async {
                   Navigator.pushNamed(context, '/POST',
-                      arguments: ({
-                        "uid": item.id,
-                        "titulo_pub": titulo,
-                        "autor_pub": autor,
-                        "subtitulo_pub": item.data()['subtitulo'],
-                        "texto": item.data()['sinopse']
-                      }));
+                      arguments: ({"uid": item.id,"titulo_pub": titulo,
+                        "autor_pub": autor,"subtitulo_pub": item.data()['subtitulo'],
+                        "texto": item.data()['sinopse']}));
                 }),
             IconButton(
               icon: const Icon(Icons.delete),

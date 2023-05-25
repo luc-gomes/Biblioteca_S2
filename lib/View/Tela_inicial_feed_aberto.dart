@@ -77,9 +77,13 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                     backgroundColor: Color.fromARGB(255, 202, 77, 61),
                     padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/POST',arguments: item);
-                  },
+                  onPressed: () async {
+                  Navigator.pushNamed(context, '/POST',
+                      arguments: ({"uid": item.id,"titulo_pub": titulo,
+                        "autor_pub": item.data()['autor'],"subtitulo_pub": item.data()['subtitulo'],
+                        "texto": item.data()['sinopse']
+                      }));
+                },
                   child: Text('Continuar lendo'))
             ],
           ),

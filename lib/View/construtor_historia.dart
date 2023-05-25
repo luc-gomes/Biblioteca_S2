@@ -3,26 +3,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 
-class Tijolometro extends StatefulWidget {
-  const Tijolometro({ Key? key }) : super(key: key);
+class ConstrutorDEhistorias extends StatefulWidget {
+  const ConstrutorDEhistorias({ Key? key }) : super(key: key);
 
   @override
-  _TijolometroState createState() => _TijolometroState();
+  _ConstrutorDEhistoriasState createState() => _ConstrutorDEhistoriasState();
 }
 
-class _TijolometroState extends State<Tijolometro> {
-  @override
-
-  
-  // ignore: override_on_non_overriding_member
+class _ConstrutorDEhistoriasState extends State<ConstrutorDEhistorias> {
   var txtTitulo = TextEditingController();
   var txtSubtitulo = TextEditingController();
   var txtAutor = TextEditingController();
   var txtSinopse = TextEditingController();
   var txtTexto = TextEditingController();
-  //
-  // RETORNAR um ÚNICO DOCUMENTO a partir do ID
-  //
   getDocumentById(id) async {
     await FirebaseFirestore.instance
         .collection('Historias')
@@ -35,18 +28,12 @@ class _TijolometroState extends State<Tijolometro> {
       
     });
   }
-
   @override
   Widget build(BuildContext context) {
-    //
-    // RECUPERAR o ID do Café que foi selecionado pelo usuário
-    //
     var id = ModalRoute.of(context)?.settings.arguments;
 
     if (id != null) {
-      // TESTE DE EXISTENCIA DO DOCUMENTO NA BASE
-      if (
-          
+      if (  
           txtTitulo.text.isEmpty &&
           txtSubtitulo.text.isEmpty &&
           txtTexto.text.isEmpty 
@@ -54,9 +41,6 @@ class _TijolometroState extends State<Tijolometro> {
         getDocumentById(id);
       }
     }
-    //
-    // INICIO DA INTERFACE DE CADASTRO DE NOVAS "HISTORIAS"
-    //
     return Scaffold(
       appBar: AppBar(
         title: Text('tijolometro'),
@@ -119,7 +103,6 @@ class _TijolometroState extends State<Tijolometro> {
                 padding: EdgeInsets.all(5),
                 width: 150,
                 child: ElevatedButton(
-                  //BTN SALVAR
                   child: Text(
                     'Salvar',
                     style: TextStyle(color: Colors.orange),
@@ -127,9 +110,6 @@ class _TijolometroState extends State<Tijolometro> {
                   ),
                   onPressed: () {
                     if (id == null) {
-                      //
-                      // ADICIONAR um NOVO DOCUMENTO
-                      //
                       FirebaseFirestore.instance.collection('Historias').add({
                         'autor': txtAutor.text,
                         'sinopse': txtSinopse.text,
@@ -137,9 +117,6 @@ class _TijolometroState extends State<Tijolometro> {
                         'titulo': txtTitulo.text,
                       });
                     } else {
-                      //
-                      // ATUALIZAR UM DOCUMENTO EXISTENTE
-                      //
                       FirebaseFirestore.instance
                           .collection('testehistoria')
                           .doc(id.toString())

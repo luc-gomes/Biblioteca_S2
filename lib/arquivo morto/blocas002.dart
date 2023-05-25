@@ -1,6 +1,6 @@
 /* formato de exibição dos blocos no feed */
 
-import 'package:bibliotec_s2/Widgets/historia.dart';
+import 'package:bibliotec_s2/arquivo%20morto/historia.dart';
 import 'package:flutter/material.dart';
 
 class FeedBlocos01 extends StatefulWidget {

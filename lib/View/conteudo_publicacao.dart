@@ -1,7 +1,3 @@
-// ignore_for_file: file_names, avoid_unnecessary_containers, prefer_const_constructors, non_constant_identifier_names
-
-//import 'package:cloud_firestore/cloud_firestore.dart'
-    //show FirebaseFirestore, QuerySnapshot;
 import 'package:flutter/material.dart';
 import 'dart:core';
 class ViewPost extends StatefulWidget {
@@ -10,24 +6,16 @@ class ViewPost extends StatefulWidget {
   @override
   State<ViewPost> createState() => _ViewPostState();
 }
-
 class _ViewPostState extends State<ViewPost> {
   var conteudo;
-
-  
-//--------------------widget buid----------------------------
   @override
   Widget build(BuildContext context) {
 
-    final data = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>  ;
-
-   
-    String titulo_pub = data['titulo_pub'];
-    String subtitulo_pub = data['subtitulo_pub'];
-    String autor_pub = data['autor_pub'];
+    final data = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>  ; 
+    String tituloPub = data['titulo_pub'];
+    String subtituloPub = data['subtitulo_pub'];
+    String autorPub = data['autor_pub'];
     String texto = data['texto'];
-    
-
     return Container(
       color: const Color.fromARGB(255, 255, 255, 255),
         padding: const EdgeInsets.all(30),
@@ -39,18 +27,17 @@ class _ViewPostState extends State<ViewPost> {
                   children: [
                     Container(
                       child: Text(
-                        titulo_pub,
-                        style: TextStyle(height: 5, fontSize: 25),
+                        tituloPub,
+                        style: TextStyle(height: 5, fontSize: 30, color: Colors.black),
                       ),
                     ),
                     Container(
                       child: Text(
-                        subtitulo_pub,
+                        subtituloPub,
                         style: const TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 16),
+                            fontStyle: FontStyle.italic, fontSize: 16, color: Colors.black),
                       ),
                     ),
-
                     Container(
                       margin: EdgeInsets.all(13.0),
                       decoration: BoxDecoration(
@@ -63,7 +50,7 @@ class _ViewPostState extends State<ViewPost> {
                       child: Text(
                         texto,
                         style: const TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 16),
+                            fontStyle: FontStyle.italic, fontSize: 16, color: Colors.black),
                       ),
                     ),
                     Container(
@@ -71,12 +58,12 @@ class _ViewPostState extends State<ViewPost> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(25.0)),
                         border: Border.all(
-                          color: Colors.transparent,
+                          color: const Color.fromARGB(0, 255, 0, 0),
                           width: 7,
                         ),
                       ),
                       child: Text(
-                        autor_pub,
+                        autorPub,
                         style: const TextStyle(
                             fontStyle: FontStyle.italic, fontSize: 16, color: Colors.deepOrangeAccent),
                       ),
@@ -84,7 +71,6 @@ class _ViewPostState extends State<ViewPost> {
                   ],
                 ),
                 Row(
-                  // LINHA COM BOTOES DE AÇÃO
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(

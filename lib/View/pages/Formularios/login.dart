@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
-                  //Navigator.pushNamed(context, '/criar_conta');
+                  Navigator.pushNamed(context, '/criar_conta');
                 },
               ),
             ),
