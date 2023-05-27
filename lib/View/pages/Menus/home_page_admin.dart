@@ -1,7 +1,7 @@
 
-import 'package:bibliotec_s2/View/lista_acervo_com_fotos.dart';
+import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
 import 'package:flutter/material.dart';
-import 'menu_opcos_admin.dart';
+import 'menu_opcoes_admin.dart';
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
   @override

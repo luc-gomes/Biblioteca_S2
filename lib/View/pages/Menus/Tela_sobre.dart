@@ -39,7 +39,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 255, 0, 200),
         title: Text('Sobre'),
       ),
       body: Center(
@@ -54,12 +54,12 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
               alignment: FractionalOffset.center,
               transform: Matrix4.identity()
                 ..setEntry(3, 2, 0.0015)
-                ..rotateY(pi * _animation.value),
+                ..rotateY(3*pi * _animation.value+0.75),
               child: Card(
                 child: _animation.value <= 0.5
                     ? Container(
-                        width: 150,
-                        height: 200,
+                        width: 100,
+                        height: 150,
                         decoration: new BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.only(
@@ -75,8 +75,8 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                           style: TextStyle(fontSize: 100, color: Colors.white),
                         )))
                     : Container(
-                        width: 150,
-                        height: 250,
+                        width: 100,
+                        height: 150,
                         decoration: new BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -87,7 +87,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                           ),
                         ),
                         child: Image.asset(
-                          'lib/Img/lucas_gomes_da_silva.jpg',
+                          'lib/Img/Generico/Autor.jpg',
                           fit: BoxFit.cover,
                         )),
               ),
@@ -99,13 +99,13 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
             Transform(
               alignment: FractionalOffset.center,
               transform: Matrix4.identity()
-                ..setEntry(3, 2, 0.0015)
-                ..rotateX(pi * _animation.value),
+                ..setEntry(3, 2, 0.0055)
+                ..rotateX(3.14*pi * _animation.value*1.5),
               child: Card(
-                child: _animation.value <= 0.5
+                child: _animation.value <= 0.7
                     ? Container(
                         width: 300,
-                        height: 300,
+                        height: 200,
                         decoration: new BoxDecoration(
                           color: Colors.blue.shade900,
                           borderRadius: BorderRadius.only(
@@ -117,7 +117,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                         ),
                         child: Center(
                             child: Text(
-                          ' demonstrar uma "plataforma" que adicione remova e edite publique e apresente historias\n\n É SÓ TER A HABILIDADE.',
+                          ' demonstrar uma "plataforma" que adicione remova e edite publique e apresente historias.\n\nÉ SÓ TER A HABILIDADE.\n Aprecie com moderação.',
                           style: TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 16,
@@ -127,7 +127,7 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                         width: 200,
                         height: 200,
                         decoration: new BoxDecoration(
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 255, 0, 0),
                           borderRadius: BorderRadius.only(
                             topLeft: const Radius.circular(40.0),
                             topRight: const Radius.circular(40.0),
@@ -136,17 +136,17 @@ class _Tela_sobreState extends State with SingleTickerProviderStateMixin {
                           ),
                         ),
                         child: RotatedBox(
-                          quarterTurns: 2,
+                          quarterTurns: -2,
                           child: Image.asset(
-                            'lib/Img/sccapolindo.jpg',
-                            fit: BoxFit.cover,
+                            'lib/Img/Generico/imagem ilustrativa marron.jpg',
+                            fit: BoxFit.fitHeight ,
                           ),
                         )),
               ),
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: Color.fromARGB(255, 255, 0, 0),
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 ),
                 onPressed: () {

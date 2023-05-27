@@ -1,12 +1,12 @@
-import 'package:bibliotec_s2/View/Tela_inicial_feed_aberto.dart';
-import 'package:bibliotec_s2/View/conteudo_publicacao.dart';
-import 'package:bibliotec_s2/View/Tela_sobre.dart';
-import 'package:bibliotec_s2/View/home_page_admin.dart';
-import 'package:bibliotec_s2/View/lista_acervo_com_fotos.dart';
-import 'package:bibliotec_s2/View/menu_opcos_admin.dart';
-import 'package:bibliotec_s2/View/minha_conta.dart';
-import 'package:bibliotec_s2/View/construtor_historia.dart';
-import 'package:bibliotec_s2/View/nova_historia.dart';
+import 'package:bibliotec_s2/View/pages/Feeds/Tela_inicial_feed_aberto.dart';
+import 'package:bibliotec_s2/View/pages/Conteudo/conteudo_publicacao.dart';
+import 'package:bibliotec_s2/View/pages/Menus/Tela_sobre.dart';
+import 'package:bibliotec_s2/View/pages/Menus/home_page_admin.dart';
+import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
+import 'package:bibliotec_s2/View/pages/Menus/menu_opcoes_admin.dart';
+import 'package:bibliotec_s2/View/pages/Menus/minha_conta.dart';
+import 'package:bibliotec_s2/View/pages/Formularios/construtor_historia.dart';
+import 'package:bibliotec_s2/View/pages/Formularios/nova_historia.dart';
 import 'package:bibliotec_s2/arquivo%20morto/blocas002.dart';
 import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
  // imports firebse
