@@ -1,5 +1,6 @@
 import 'package:bibliotec_s2/View/pages/Feeds/Tela_inicial_feed_aberto.dart';
 import 'package:bibliotec_s2/View/pages/Conteudo/conteudo_publicacao.dart';
+import 'package:bibliotec_s2/View/pages/Formularios/Login_multiplas_entradas.dart';
 import 'package:bibliotec_s2/View/pages/Menus/Tela_sobre.dart';
 import 'package:bibliotec_s2/View/pages/Menus/home_page_admin.dart';
 import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
@@ -30,7 +31,7 @@ Future<void> main() async {
       debugShowCheckedModeBanner: false,
       initialRoute: '/TELA_INICIAL',
       routes: {
-        '/login': (context) => LoginPage(), //TELA DE LOGIN
+        
         '/criar_conta': (context) => CriarContaPage(),// CRIAR UMA CONTA
         '/FeedBlocos01': (context) => FeedBlocos01(), // OLD
         '/cadastro': (context) => CadastroPage(), // CADASTRAR HISTORIAS
@@ -45,6 +46,11 @@ Future<void> main() async {
         '/Tijolometro': (context) => ConstrutorDEhistorias(), // FORMULARIO DE CADASTRO DE PUBLICAÇOES
         '/TELA_INICIAL': (context) => Tela_Inicial_ABERTO(), // TELA INICIAL PUBLICA
         '/POST': (context) => ViewPost(), // POSTAGEM 
+        '/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
+        // old
+        '/login': (context) => LoginPage(), //TELA DE LOGIN
+
+        
       },
     ),
   );
