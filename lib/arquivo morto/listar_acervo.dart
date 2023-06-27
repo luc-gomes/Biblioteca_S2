@@ -76,11 +76,11 @@ class _Listar_acervoState extends State<Listar_acervo> {
       appBar: AppBar(
         title: Text('acervo'),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 255, 0, 0),
+        backgroundColor: Colors.black87,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout_outlined),
+            icon: Icon(Icons.logout_outlined,color: Colors.orange),
             onPressed: () async {
               FirebaseAuth.instance.signOut();
               Navigator.pushReplacementNamed(context, '/menu_opcoes');
@@ -119,7 +119,7 @@ class _Listar_acervoState extends State<Listar_acervo> {
           }),
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.orange.shade900,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/NovaHistoria');

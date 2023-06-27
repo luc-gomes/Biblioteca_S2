@@ -1,7 +1,7 @@
 
 import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
 import 'package:flutter/material.dart';
-import 'menu_opcoes_admin.dart';
+import 'Main_menu.dart';
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
   @override
@@ -16,8 +16,8 @@ class _HomePageState extends State<HomePage> {
         body: PageView(
         controller: pageController,
         children: [
-          Painel_de_colecoes(),
-          lista_acervo_listview(),
+          Dashboard_adm(),
+          Lista_acervo_listview(),
            
           
         ],
@@ -29,10 +29,10 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.red.shade900,
+        backgroundColor: Colors.black,
 
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.yellowAccent.withOpacity(.50),
+        unselectedItemColor: Colors.red,
         selectedFontSize: 16,
         unselectedFontSize: 16,
         iconSize: 40,
@@ -40,11 +40,11 @@ class _HomePageState extends State<HomePage> {
         items: [
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_outlined),
+            icon: Icon(Icons.psychology_alt_rounded ),
             label: 'Opções',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.feed_outlined),
             label: 'Home',
           ),
          

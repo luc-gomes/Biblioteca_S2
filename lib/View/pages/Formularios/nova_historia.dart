@@ -66,12 +66,12 @@ class _NovaHistoriaState extends State<NovaHistoria> {
     return Scaffold(
       // ignore: unnecessary_new
       appBar: new AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black87,
         
         // ignore: unnecessary_new
         title: new Text(
           "Edição",
-          style: TextStyle(color: Colors.red.shade900),
+          style: TextStyle(color: Colors.red,),
         ),
         automaticallyImplyLeading: false,
         actions: [
@@ -91,42 +91,42 @@ class _NovaHistoriaState extends State<NovaHistoria> {
           TextField(
             // TITULO
             controller: txtTitulo,
-            style: TextStyle(color: Colors.red.shade900, fontSize: 15),
+            style: TextStyle(color: Colors.black87, fontSize: 15),
             decoration: InputDecoration(
               labelText: 'Titulo',
-              labelStyle: TextStyle(color: Colors.red.shade900, fontSize: 12),
+              labelStyle: TextStyle(color: Colors.black87, fontSize: 12),
             ),
           ),
           const SizedBox(height: 30),
           TextField(
             // SUBTITULO
             controller: txtSubtitulo,
-            style: TextStyle(color: Colors.red.shade900, fontSize: 15),
+            style: TextStyle(color: Colors.black87, fontSize: 15),
             decoration: InputDecoration(
               labelText: 'Subtitulo',
-              labelStyle: TextStyle(color: Colors.red.shade900, fontSize: 12),
+              labelStyle: TextStyle(color: Colors.black87, fontSize: 12),
             ),
           ),
           const SizedBox(height: 50),
           TextField(
             // AUTOR
             controller: txtAutor,
-            style: TextStyle(color: Colors.red.shade900, fontSize: 15),
+            style: TextStyle(color: Colors.black87, fontSize: 15),
             decoration: InputDecoration(
               labelText: 'Autor',
-              labelStyle: TextStyle(color: Colors.red.shade900, fontSize: 12),
+              labelStyle: TextStyle(color: Colors.black87, fontSize: 12),
             ),
           ),
           const SizedBox(height: 50),
           TextField(
             // SINOPSE
-            maxLines: 5,
+            maxLines: 25,
             maxLength: 5000,
             controller: txtSinopse,
-            style: TextStyle(color: Colors.red.shade900, fontSize: 15),
+            style: TextStyle(color: Colors.red.shade900, fontSize: 20),
             decoration: InputDecoration(
               labelText: 'Digite aqui:',
-              labelStyle: TextStyle(color: Colors.red.shade900, fontSize: 12),
+              labelStyle: TextStyle(color: Colors.black87, fontSize: 25),
             ),
           ),
           const SizedBox(height: 120),

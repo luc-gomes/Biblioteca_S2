@@ -3,13 +3,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class lista_acervo_listview extends StatefulWidget {
-  const lista_acervo_listview({Key? key}) : super(key: key);
+class Lista_acervo_listview extends StatefulWidget {
+  const Lista_acervo_listview({Key? key}) : super(key: key);
 
   @override
-  _lista_acervo_listviewState createState() => _lista_acervo_listviewState();
+  _Lista_acervo_listviewState createState() => _Lista_acervo_listviewState();
 }
-class _lista_acervo_listviewState extends State<lista_acervo_listview> {
+class _Lista_acervo_listviewState extends State<Lista_acervo_listview> {
   var historias;
   @override
   void initState() {
@@ -20,6 +20,13 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
     String titulo = item.data()['titulo'];
     String subtitulo = item.data()['subtitulo'];
     return Container(
+       margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              border: Border.all(
+              color: Colors.black54,
+              width: 3,),
+              ),
       child: Column(
         children: [
           Container(//TITULO 
@@ -34,12 +41,12 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
             ),
           ),
           Container(
-             margin: EdgeInsets.all(20.0),
+             margin: EdgeInsets.all(08.0),
               decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              borderRadius: BorderRadius.all(Radius.circular(0.0)),
               border: Border.all(
-              color: Colors.orange.shade300,
-              width: 30,
+              color: Colors.brown,
+              width: 3,
           ),
               ),
             child:Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
@@ -97,11 +104,11 @@ class _lista_acervo_listviewState extends State<lista_acervo_listview> {
       appBar: AppBar(
         title: Text('Acervo'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black87,
         automaticallyImplyLeading: false,
         actions: [],
       ),
-      backgroundColor: Colors.blue.shade900,
+      backgroundColor: Colors.white70,
       body: StreamBuilder<QuerySnapshot>(          
         stream: historias.snapshots(),
           builder: (context, snapshot) {

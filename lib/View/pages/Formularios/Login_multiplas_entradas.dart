@@ -159,7 +159,7 @@ class _LoginPage_improved extends State<LoginPage_improved> {
                       },
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.black,
-                      label: Text('Entrar com Google'),
+                      label: Text('Entrar com Redes sociais'),
                       icon: Image.asset(
                         'lib/Img/Generico/googlelogo.jpg',
                         width: 30,
@@ -222,8 +222,9 @@ class _LoginPage_google extends State<LoginPage_google> {
       body: Center(
         child: Obx(
           () {
-            if (controller.googleAccount.value == null)
-              return buildProfileView();
+            if (controller.googleAccount.value != null)
+              return buildProfileView(); 
+              
             else
               return buildProfileButton();
           },
@@ -232,10 +233,37 @@ class _LoginPage_google extends State<LoginPage_google> {
     );
   }
 
-  Column buildProfileButton() {
+  Column buildProfileView () {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+       
+            
+              Column(
+              // LOGO E NOME DO APP
+                children: [
+                Text(
+                  'Biblioteca_s3',
+                  style: TextStyle(
+                  fontSize: 42,
+                  fontStyle: FontStyle.normal,                 
+                  color: Colors.yellow.shade700),
+                  textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.book_outlined, // INCONE DE CONTA CIRCULAR
+                  size: 100,
+                  color: Colors.red.shade700)
+                  ],
+                ),
+            
+            
+            
+            
         CircleAvatar(backgroundColor: Colors.deepOrange ,backgroundImage: Image.network(controller.googleAccount.value?.photoUrl ??' ').image, radius: 150),
         Text(
           controller.googleAccount.value?.displayName ?? '',
@@ -258,7 +286,7 @@ class _LoginPage_google extends State<LoginPage_google> {
 
          ActionChip(
           label: Text('Acessar Painel'),
-          avatar: Icon(Icons.logout),
+          avatar: Icon(Icons.chevron_right),
           onPressed: () {
             Navigator.pushNamed(context, '/HOME');
           },)
@@ -267,7 +295,7 @@ class _LoginPage_google extends State<LoginPage_google> {
   }
 
 //style: TextStyle(fontWeight: FontWeight.bold),
-  FloatingActionButton buildProfileView() {
+  FloatingActionButton buildProfileButton() {
     return FloatingActionButton.extended(
       onPressed: () {
         controller.login();
@@ -282,4 +310,35 @@ class _LoginPage_google extends State<LoginPage_google> {
       ),
     );
   }
+  FloatingActionButton buildProfileViewApple() {
+    return FloatingActionButton.extended(
+      onPressed: () {
+        controller.login();
+      },
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      label: Text('Entrar com apple'),
+      icon: Image.asset(
+        'lib/Img/Generico/applelogo.jpg',
+        width: 30,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+FloatingActionButton buildProfileViewFacebook() {
+    return FloatingActionButton.extended(
+      onPressed: () {
+        controller.login();
+      },
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      label: Text('Entrar com apple'),
+      icon: Image.asset(
+        'lib/Img/Generico/facebooklogo.jpg',
+        width: 30,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
 }
+

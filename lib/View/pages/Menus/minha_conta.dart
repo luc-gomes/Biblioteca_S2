@@ -4,72 +4,95 @@
 
 // ignore_for_file: camel_case_types
 
-import 'package:bibliotec_s2/View/pages/Formularios/login.dart';
+ 
+import 'package:bibliotec_s2/Widgets/Login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 class Minha_conta extends StatefulWidget {
   const Minha_conta({Key? key}) : super(key: key);
+  
 
   @override
   _Minha_contaState createState() => _Minha_contaState();
 }
 class _Minha_contaState extends State<Minha_conta> {
+  final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
-     final obj = ModalRoute.of(context)!.settings.arguments as Dados;
+      
     return Scaffold(
-      appBar: AppBar(
-          title: Text('MINHA CONTA'),
-          centerTitle: true,
-          backgroundColor: Colors.green),
-      backgroundColor: Colors.green.shade300,
-      body: Container(
-        padding: EdgeInsets.all(50),
-        child: ListView(
-          children: [
-            Container(
-              margin: EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                border: Border.all(
-                  color: Colors.orange.shade300,
-                  width: 10,
-                ),
-                color: Colors.green.shade800,
-              ),
-              child: Column(
+      body: Center(
+        child: Obx(
+          () {
+            if (controller.googleAccount.value != null)
+              return buildProfileView(); 
+              
+            else
+              return Text('Erro');
+          },
+        ),
+      ),
+    );
+  }
+
+  Column buildProfileView () {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+       
+            
+              Column(
+              // LOGO E NOME DO APP
                 children: [
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                            Icons
-                                .account_circle_sharp, // INCONE DE CONTA CIRCULAR
-                            size: 100,
-                            color: Colors.orange.shade300)
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(
-                          obj.txtEmail,
-                          style: TextStyle(
-                              fontSize: 42,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.orange.shade400),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                Text(
+                  'Biblioteca_s3',
+                  style: TextStyle(
+                  fontSize: 42,
+                  fontStyle: FontStyle.normal,                 
+                  color: Colors.yellow.shade700),
+                  textAlign: TextAlign.center,
                   ),
                 ],
               ),
-            ),
-          ],
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.book_outlined, // INCONE DE CONTA CIRCULAR
+                  size: 100,
+                  color: Colors.red.shade700)
+                  ],
+                ),
+            
+            
+            
+            
+        CircleAvatar(backgroundColor: Colors.deepOrange ,backgroundImage: Image.network(controller.googleAccount.value?.photoUrl ??' ').image, radius: 150),
+        Text(
+          controller.googleAccount.value?.displayName ?? '',
+          style: Get.textTheme.headlineSmall,
         ),
-      ),
+        Text(
+          controller.googleAccount.value?.email ?? '',
+          style: Get.textTheme.headlineSmall,
+        ),
+        ActionChip(
+
+          label: Text('Desconectar da plataforma'),
+          avatar: Icon(Icons.logout),
+          onPressed: () {
+            controller.logout();
+          },
+
+          
+        ),
+
+         ActionChip(
+          label: Text('Acessar Painel'),
+          avatar: Icon(Icons.chevron_right),
+          onPressed: () {
+            Navigator.pushNamed(context, '/HOME');
+          },)
+      ],
     );
   }
 }

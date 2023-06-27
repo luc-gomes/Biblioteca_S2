@@ -2,30 +2,30 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Painel_de_colecoes extends StatefulWidget {
-  const Painel_de_colecoes({ Key? key }) : super(key: key);
+class Dashboard_adm extends StatefulWidget {
+  const Dashboard_adm({ Key? key }) : super(key: key);
 
   @override
-  _Painel_de_colecoesState createState() => _Painel_de_colecoesState();
+  _Dashboard_admState createState() => _Dashboard_admState();
 }
 // ignore: camel_case_types
-class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
+class _Dashboard_admState extends State<Dashboard_adm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar( 
       title: Text('Menu'),
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.black,
       ),
       body:
 //------------------------------------------------------------------------------
           Container(
-            color: Colors.blue.shade500,
+            color: Colors.brown.shade300,
             child: GridView.count(          
             primary: false,
-            padding: const EdgeInsets.all(8),
-            crossAxisSpacing: 7,
-            mainAxisSpacing: 7,
-            crossAxisCount: 2,
+            padding: const EdgeInsets.all(30),
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 50,
+            crossAxisCount: 3,
             children: <Widget>[
 //---------------------------------------blocos menu----------------------------
               Container(//Blocos 0 - Nova Historia
@@ -35,8 +35,8 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     Container(
                       child: IconButton(
                         icon: Icon(Icons.add),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           setState(() {
                                Navigator.pushNamed(context, '/NovaHistoria');
@@ -47,29 +47,31 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(//TEXTO
                       
-                      child: Text(
-                        'Cadastar nova historia',
+                      child:Align(alignment: Alignment.center,
+                        child:  Text(
+                        'Add Historia',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade200,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 1 - Lista de historias
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         icon: Icon(Icons.book_rounded),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           Navigator.pushNamed(context, '/Listar_acervo');
                           setState(() {
@@ -80,31 +82,34 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                       ),
                     ),
                     Container(//TEXTO
-                      
-                      child: Text(
-                        'Lista de historias',
+                    child:Align(alignment: Alignment.center,
+                        child: Text(
+                          
+                        'Lista acervo',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 20,
+                          
+                          fontSize: 17,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade200,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 2 - Catalogo aberto
 
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         icon: Icon(Icons.view_day_outlined),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           Navigator.pushNamed(context, '/AcervoListview');
                           setState(() {
@@ -114,30 +119,32 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(// TEXTO
                        
-                      child: Text(
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
                         'catalogo',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade400,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 3 - Usuarios
 
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         icon: Icon(Icons.supervised_user_circle),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                         //  Navigator.pushNamed(context, '/sobre');
                           setState(() {
@@ -149,30 +156,32 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(// TEXTO
                        
-                      child: Text(
-                        'usuarios',
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
+                        'Opçoes',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade400,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 4 - Sobre
 
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         icon: Icon(Icons.info_rounded),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           Navigator.pushNamed(context, '/sobre');
                           setState(() {
@@ -183,30 +192,32 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(// TEXTO
                        
-                      child: Text(
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
                         'sobre',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade400,
+               color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------              
               Container(//Blocos 5 - Ajuda
                 
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         icon: Icon(Icons.help_center_sharp),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           setState(() {
                             // colocar alguma ação aqui
@@ -217,31 +228,33 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(// TEXTO
                       
-                      child: Text(
-                        'ajuda',
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
+                        'Ajuda',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade400,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 6 - Conta
  
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//INCONE
                       child: IconButton(
                         //icon button sconta
                         icon: Icon(Icons.account_box_sharp),
-                        iconSize: 60,
-                        color:Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () {
                           Navigator.pushNamed(context, '/Minha_conta');
                           setState(() {
@@ -254,34 +267,36 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     Container(// TEXTO
                     
                       
-                      child: Text(
-                        'conta',
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
+                        'Conta',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade600,
+                color: Colors.transparent,
               ),
 
 //------------------------------------------------------------------------------
               Container(//Blocos 7 - Log_out
          
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(3),
                 child: Column(
                   children: [
                     Container(//icon button sair
                       child: IconButton(
                         icon: Icon(Icons.logout_sharp),
-                        iconSize: 60,
-                        color: Colors.lightGreen.shade900,
+                        iconSize: 40,
+                        color: Colors.black,
                         onPressed: () async {
                           FirebaseAuth.instance.signOut();
-                          Navigator.pushReplacementNamed(context, '/login');
+                          Navigator.pushReplacementNamed(context, '/login_improved');
                           setState(() {
                             // colocar alguma ação aqui
                             Icon(Icons.logout_sharp);
@@ -291,18 +306,20 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
                     ),
                     Container(//TEXTO
                       
-                      child: Text(
-                        'sair',
+                      child:Align(alignment: Alignment.center,
+                        child: Text(
+                        'Sair',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
                         ),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
-                color: Colors.yellow.shade600,
+                color: Colors.transparent,
               ),
 //------------------------------------------------------------------------------
             ],

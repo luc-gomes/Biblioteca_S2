@@ -20,126 +20,156 @@ class _CriarContaPageState extends State<CriarContaPage> {
       appBar: AppBar(
           title: Text('Novo usuário'),
           centerTitle: true,
-          backgroundColor: Colors.blue.shade900),
-      backgroundColor: Colors.grey.shade300,
+          backgroundColor: Colors.redAccent),
+      backgroundColor: Colors.blueAccent,
       body: Container(
-        padding: EdgeInsets.all(50),
+        padding: EdgeInsets.all(22),
         child: ListView(
           children: [
-             TextField(
-              controller: txtEmail,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w300,
-              ),
-               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email,
-                color: Colors.black),
-                labelText: 'Email',
-                  focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.black, width: 3.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
-                      hintText: 'email:',
-                      hintStyle: TextStyle(color: Colors.black),
-                    ),
-            ),
-            SizedBox(height: 20),
-
-            //-------------------------------------------------------------------
-
-
-            TextField(
-              controller: txtNick,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w300,
-              ),
-               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person,
-                color: Colors.black),
-                labelText: 'Nickname',
-                  focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.black, width: 3.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
-                      hintText: 'nome de usuario',
-                      hintStyle: TextStyle(color: Colors.black),
-                    ),
-            ),
-            SizedBox(height: 20),
+            Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.book_outlined, // INCONE DE CONTA CIRCULAR
+                  size: 200,
+                  color: Colors.red.shade700)
+                  ],
+                ),
             
-            //-------------------------------------------------------------------
+              Column(
+              // LOGO E NOME DO APP
+                children: [
+                Text(
+                  'Biblioteca_s2',
+                  style: TextStyle(
+                  fontSize: 42,
+                  fontStyle: FontStyle.normal,                 
+                  color: Colors.yellow.shade700),
+                  textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ]
+            ),
+            
+            
+
+            
+
+
+            SizedBox(height: 50),
+            Column(
+               children: [
 
 
             TextField(
-              controller: txtNome,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w300,
-              ),
-               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person,
-                color: Colors.black),
-                labelText: 'Nome',
-                  focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors.black, width: 3.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
-                      ),
-                      hintText: 'Nome:',
-                      hintStyle: TextStyle(color: Colors.black),
-                    ),
+                  controller: txtEmail,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email,
+                    color: Colors.white),
+                    labelText: 'Email',
+                      focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.white, width: 3.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 1.0),
+                          ),
+                          hintText: 'email:',
+                          hintStyle: TextStyle(color: Colors.white),
+                        ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 15),
+ 
+            TextField(
+                  controller: txtNick,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person,
+                    color: Colors.white),
+                    labelText: 'Nickname',
+                      focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.white, width: 3.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 1.0),
+                          ),
+                          hintText: 'nome de usuario',
+                          hintStyle: TextStyle(color: Colors.white),
+                        ),
+            ),
+            SizedBox(height: 15),
+      
+            TextField(
+                  controller: txtNome,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person,
+                    color: Colors.white),
+                    labelText: 'Nome',
+                      focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.white, width: 3.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white, width: 1.0),
+                          ),
+                          hintText: 'Nome:',
+                          hintStyle: TextStyle(color: Colors.white),
+                        ),
+            ),
+            SizedBox(height: 15),
 
-            //-------------------------------------------------------------------
-
-           
             TextField(
               obscureText: true,
               controller: txtSenha,
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.w300,
               ),
                decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock,
-                color: Colors.black),
+                color: Colors.white),
                 labelText: 'Senha',
                   focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Colors.black, width: 3.0),
+                            color: Colors.white, width: 3.0),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 1.0),
+                        borderSide: BorderSide(color: Colors.white, width: 1.0),
                       ),
                       hintText: 'Senha:',
-                      hintStyle: TextStyle(color: Colors.black),
+                      hintStyle: TextStyle(color: Colors.white),
                     ),
             ),
-            SizedBox(height: 40),
+            ],
+            ),
+            
+            SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                
                 SizedBox(
-                  width: 150,
+                  width: 130,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade600,),
+                    backgroundColor: Colors.amberAccent,),
                     child: Text('cancelar',
                     style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          color: Colors.white),
+                          color: Colors.red),
                           textAlign: TextAlign.center,),
                     onPressed: () {
                       Navigator.pop(context);
@@ -151,11 +181,11 @@ class _CriarContaPageState extends State<CriarContaPage> {
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade800,),
+                    backgroundColor: Colors.red),
                     child: Text('criar',
                           style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          color: Colors.white),
+                          color: Colors.amberAccent),
                           textAlign: TextAlign.center,),
                     onPressed: () {
                       criarConta(
@@ -168,7 +198,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
                 ),
               ],
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 15),
           ],
         ),
       ),
