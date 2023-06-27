@@ -1,6 +1,7 @@
 import 'package:bibliotec_s2/View/pages/Feeds/Tela_inicial_feed_aberto.dart';
 import 'package:bibliotec_s2/View/pages/Conteudo/conteudo_publicacao.dart';
 import 'package:bibliotec_s2/View/pages/Formularios/Login_multiplas_entradas.dart';
+ 
 import 'package:bibliotec_s2/View/pages/Menus/Tela_sobre.dart';
 import 'package:bibliotec_s2/View/pages/Menus/home_page_admin.dart';
 import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
@@ -13,6 +14,7 @@ import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
  // imports firebse
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'firebase_options.dart';
 //import 'package:firebase_core_web/firebase_core_web.dart';
 import 'View/interface de introdução.dart';
@@ -27,9 +29,9 @@ Future<void> main() async {
   );
 
   runApp(
-    MaterialApp(
+    GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/TELA_INICIAL',
+      initialRoute: '/login_improved',
       routes: {
         
         '/criar_conta': (context) => CriarContaPage(),// CRIAR UMA CONTA
@@ -47,10 +49,10 @@ Future<void> main() async {
         '/TELA_INICIAL': (context) => Tela_Inicial_ABERTO(), // TELA INICIAL PUBLICA
         '/POST': (context) => ViewPost(), // POSTAGEM 
         '/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
+        '/logingoogle':(context) => LoginPage_google(), //TELA DE LOGIN
         // old
-        '/login': (context) => LoginPage(), //TELA DE LOGIN
-
-        
+        '/login': (context) => LoginPage(), //TELA DE LOGIN antiga
+       // '/UserInfoScreen': (context) =>  UserInfoScreen(user: User, ), 
       },
     ),
   );

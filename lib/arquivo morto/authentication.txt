@@ -1,0 +1,103 @@
+showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+             
+            decoration: BoxDecoration(
+              border: Border.all(color: Color.fromARGB(255, 0, 0, 0), width: 6),
+              color: Colors.transparent,
+            ),
+            child:Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: Colors.black, width: 3),
+                                    borderRadius: BorderRadius.circular(3),
+                             ), 
+                            leading: Container(
+                                // decoration: BoxDecoration(color: Colors.blue),
+                                child: Image.asset(
+                                  'lib/Img/Generico/facebooklogo.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            title: new Text('facebook'),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: Colors.black, width: 3),
+                                    borderRadius: BorderRadius.circular(3),
+                             ),
+                            leading: Container(
+                                // decoration: BoxDecoration(color: Colors.blue),
+                                child: Image.asset(
+                                  'lib/Img/Generico/googlelogo.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            title: new Text('Google'),
+                            onTap: () {
+                              
+                              Navigator.pushNamed(context, signInWithGoogle());
+                            },
+                          ),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: Colors.black, width: 3),
+                                    borderRadius: BorderRadius.circular(3),
+                             ),
+                            leading: Container(
+                                // decoration: BoxDecoration(color: Colors.blue),
+                                child: Image.asset(
+                                  'lib/Img/Generico/githublogo.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            title: new Text('github'),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: Colors.black, width: 3),
+                                    borderRadius: BorderRadius.circular(3),
+                             ),
+                            leading: Container(
+                                // decoration: BoxDecoration(color: Colors.blue),
+                                child: Image.asset(
+                                  'lib/Img/Generico/applelogo.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            title: new Text('Apple'),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      ),
+          );
+                    });
+
+
+
+                    //-----botão com InsetsController
+
+                       Container(
+              margin: const EdgeInsets.all(5),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  
+                },
+                label: Text('Entrar com Google'),
+                icon: Icon(Icons.g_mobiledata),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                ),
+              )),
+
