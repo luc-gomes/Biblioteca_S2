@@ -32,7 +32,7 @@ Future<void> main() async {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login_improved',
+      initialRoute: '/HOME',
       routes: {
         
         '/criar_conta': (context) => CriarContaPage(),// CRIAR UMA CONTA
