@@ -16,9 +16,10 @@ class _HomePageState extends State<HomePage> {
         body: PageView(
         controller: pageController,
         children: [
-          lista_acervo_listview(),
-          //FeedBlocos01(),
           Painel_de_colecoes(),
+          lista_acervo_listview(),
+           
+          
         ],
         onPageChanged: (index) {
           setState(() {
@@ -37,15 +38,17 @@ class _HomePageState extends State<HomePage> {
         iconSize: 40,
         currentIndex: telaAtual,
         items: [
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box_outlined),
+            label: 'Opções',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
          
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_outlined),
-            label: 'Opções',
-          ),
+          
         ],
         onTap: (index) {
           setState(() {

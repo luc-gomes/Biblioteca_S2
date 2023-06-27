@@ -19,17 +19,17 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
       body:
 //------------------------------------------------------------------------------
           Container(
-            color: Colors.blue.shade700,
+            color: Colors.blue.shade500,
             child: GridView.count(          
             primary: false,
-            padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+            padding: const EdgeInsets.all(8),
+            crossAxisSpacing: 7,
+            mainAxisSpacing: 7,
             crossAxisCount: 2,
             children: <Widget>[
 //---------------------------------------blocos menu----------------------------
               Container(//Blocos 0 - Nova Historia
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
                     Container(
@@ -62,7 +62,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
               ),
 //------------------------------------------------------------------------------
               Container(//Blocos 1 - Lista de historias
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(30),
                 child: Column(
                   children: [
                     Container(//INCONE
@@ -97,7 +97,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
 //------------------------------------------------------------------------------
               Container(//Blocos 2 - Catalogo aberto
 
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(7),
                 child: Column(
                   children: [
                     Container(//INCONE
@@ -130,7 +130,7 @@ class _Painel_de_colecoesState extends State<Painel_de_colecoes> {
 //------------------------------------------------------------------------------
               Container(//Blocos 3 - Usuarios
 
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     Container(//INCONE

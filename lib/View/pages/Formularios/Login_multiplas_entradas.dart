@@ -234,24 +234,34 @@ class _LoginPage_google extends State<LoginPage_google> {
 
   Column buildProfileButton() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircleAvatar(backgroundImage: Image.network('').image, radius: 100),
+        CircleAvatar(backgroundColor: Colors.deepOrange ,backgroundImage: Image.network(controller.googleAccount.value?.photoUrl ??' ').image, radius: 150),
         Text(
           controller.googleAccount.value?.displayName ?? '',
-          style: Get.textTheme.headlineMedium,
+          style: Get.textTheme.headlineSmall,
         ),
         Text(
           controller.googleAccount.value?.email ?? '',
-          style: Get.textTheme.headlineMedium,
+          style: Get.textTheme.headlineSmall,
         ),
         ActionChip(
-          label: Text('Sair'),
+
+          label: Text('Desconectar da plataforma'),
           avatar: Icon(Icons.logout),
           onPressed: () {
             controller.logout();
           },
+
+          
         ),
+
+         ActionChip(
+          label: Text('Acessar Painel'),
+          avatar: Icon(Icons.logout),
+          onPressed: () {
+            Navigator.pushNamed(context, '/HOME');
+          },)
       ],
     );
   }
