@@ -141,15 +141,27 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
         
 
         ListTile(
+          leading: Icon(Icons.g_mobiledata),
+          title: Text('Entrar Com google'),
+          onTap: ()=> Navigator.pushNamed(context, '/login_improved'),
+
+        ),
+        ListTile(
           leading: Icon(Icons.login),
-          title: Text('Entrar'),
-          onTap: ()=> Navigator.pushReplacementNamed(context, '/login'),
+          title: Text('Entrar Com Email'),
+          onTap: ()=> Navigator.pushNamed(context, '/login'),
+
+        ),
+        ListTile(
+          leading: Icon(Icons.login),
+          title: Text('Cadastrar conta'),
+          onTap: ()=> Navigator.pushNamed(context, '/criar_conta'),
 
         ),
         ListTile(
           leading: Icon(Icons.book),
           title: Text('Historias'),
-          onTap: ()=> Navigator.pushReplacementNamed(context, '/TELA_INICIAL'),
+          onTap: ()=> Navigator.pushNamed(context, '/TELA_INICIAL'),
         ),
         ListTile(
           leading: Icon(Icons.info),

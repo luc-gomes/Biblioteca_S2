@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.green),
       backgroundColor: Colors.lightBlue,*/
       body: Container(
-        color: Color.fromARGB(255, 0, 80, 209),
+        color: Colors.blue.shade700,
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                       // LOGO E NOME DO APP
                       children: [
                         Text(
-                          'Biblioteca_s2',
+                          'Biblioteca_s3',
                           style: TextStyle(
                               fontSize: 42,
                               fontStyle: FontStyle.italic,
@@ -74,24 +74,28 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+            SizedBox(height: 35),
             TextField(
               controller: txtEmail,
-              cursorColor: Colors.amber.shade300,
+              cursorColor: Colors.white ,
               style: TextStyle(
-                color: Colors.yellow,
+                color: Colors.white,
                 fontWeight: FontWeight.w300,
               ),
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email, color: Colors.white),
-                labelText: 'Email:',
+                labelText: 'Email:',  
+                labelStyle: TextStyle(
+                  color: Colors.white, //<-- SEE HERE
+                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide:
-                      BorderSide(color: Colors.white, width: 3.0),
+                      BorderSide(color: Colors.white, width: 4.0),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1.0),
+                  borderSide: BorderSide(color: Colors.white, width: 4.0),
                 ),
-                hintText: 'Nickname:',
+                hintText: 'Email:',
                 hintStyle: TextStyle(color: Colors.white),
               ),
             ),
@@ -101,18 +105,21 @@ class _LoginPageState extends State<LoginPage> {
               controller: txtSenha,
               keyboardType: TextInputType.visiblePassword,
               style: TextStyle(
-                color: Colors.yellow,
+                color: Colors.white,
                 fontWeight: FontWeight.w300,
               ),
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
                 labelText: 'Senha',
+                labelStyle: TextStyle(
+                  color: Colors.white, //<-- SEE HERE
+                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide:
                       BorderSide(color: Colors.white, width: 3.0),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1.0),
+                  borderSide: BorderSide(color: Colors.white, width: 3.0),
                 ),
                 hintText: 'Senha:',
                 hintStyle: TextStyle(color: Colors.white),
@@ -120,46 +127,45 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 40),
             SizedBox(
-              width: 150,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 3.0, color: Colors.white,), backgroundColor: Color.fromARGB(255, 255, 0, 0),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                ),
-                child: Text(
-                  'entrar',
-                  style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Color.fromARGB(255, 255, 255, 255)),
-                  textAlign: TextAlign.center,
-                ),
-                onPressed: () {
-                  setState(() {
+              width: 80,
+              child: FloatingActionButton.extended(
+          onPressed: () {
+             login(txtEmail.text, txtSenha.text);
+             setState(() {
                     isLoading = true;
                   });
-                  login(txtEmail.text, txtSenha.text);
-                },
-              ),
+             
+          },
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          label: Text('Entrar  '),
+          icon: Icon(Icons.app_registration ),
+           
+          
+        ),
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 30),
             SizedBox(
-              width: 150,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 3.0, color: Colors.white,), backgroundColor: Color.fromARGB(255, 231, 62, 20),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                ),
-                child: Text(
-                  'Criar conta',
-                  style: TextStyle(
-                      fontStyle: FontStyle.normal, color: Color.fromARGB(255, 255, 255, 255)),
-                  textAlign: TextAlign.center,
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/criar_conta');
-                },
-              ),
+              width: 80,
+              child: FloatingActionButton.extended(
+          onPressed: () {
+            Navigator.pushNamed(context, '/criar_conta');
+            setState(() {
+                    isLoading = true;
+                  });
+          },
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          label: Text('Cadastrar conta'),
+          icon:  Icon(Icons.app_registration ),
+        
+          ),
             ),
             SizedBox(height: 20),
+            
+          SizedBox(height: 20),
+        
+        
           ],
         ),
       ),

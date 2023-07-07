@@ -1,5 +1,7 @@
+import 'package:bibliotec_s2/Widgets/Login_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // ignore: camel_case_types
 class Dashboard_adm extends StatefulWidget {
@@ -10,6 +12,7 @@ class Dashboard_adm extends StatefulWidget {
 }
 // ignore: camel_case_types
 class _Dashboard_admState extends State<Dashboard_adm> {
+  final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar( 
@@ -144,9 +147,9 @@ class _Dashboard_admState extends State<Dashboard_adm> {
                       child: IconButton(
                         icon: Icon(Icons.supervised_user_circle),
                         iconSize: 40,
-                        color: Colors.black,
+                        color: Colors.green,
                         onPressed: () {
-                        //  Navigator.pushNamed(context, '/sobre');
+                          Navigator.pushNamed(context, '/Minha_conta');
                           setState(() {
                              
                
@@ -256,6 +259,7 @@ class _Dashboard_admState extends State<Dashboard_adm> {
                         iconSize: 40,
                         color: Colors.black,
                         onPressed: () {
+                          
                           Navigator.pushNamed(context, '/Minha_conta');
                           setState(() {
                             // colocar alguma ação aqui
@@ -296,7 +300,9 @@ class _Dashboard_admState extends State<Dashboard_adm> {
                         color: Colors.black,
                         onPressed: () async {
                           FirebaseAuth.instance.signOut();
-                          Navigator.pushReplacementNamed(context, '/login_improved');
+                          controller.logout();
+
+                          Navigator.pushReplacementNamed(context, '/TELA_INICIAL');
                           setState(() {
                             // colocar alguma ação aqui
                             Icon(Icons.logout_sharp);

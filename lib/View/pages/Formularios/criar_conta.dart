@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+ 
 import 'package:flutter/material.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 class CriarContaPage extends StatefulWidget {
   const CriarContaPage({Key? key}) : super(key: key);
@@ -7,13 +9,11 @@ class CriarContaPage extends StatefulWidget {
   @override
   _CriarContaPageState createState() => _CriarContaPageState();
 }
-
 class _CriarContaPageState extends State<CriarContaPage> {
   var txtNome  = TextEditingController();
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
   var txtNick  = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
           title: Text('Novo usuário'),
           centerTitle: true,
           backgroundColor: Colors.redAccent),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.blue.shade600,
       body: Container(
         padding: EdgeInsets.all(22),
         child: ListView(
@@ -34,8 +34,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
                   size: 200,
                   color: Colors.red.shade700)
                   ],
-                ),
-            
+                ),            
               Column(
               // LOGO E NOME DO APP
                 children: [
@@ -51,41 +50,33 @@ class _CriarContaPageState extends State<CriarContaPage> {
               ),
             ]
             ),
-            
-            
-
-            
-
-
             SizedBox(height: 50),
             Column(
                children: [
-
-
-            TextField(
+                  TextField(//txtEmail
                   controller: txtEmail,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w300,
                   ),
-                   decoration: InputDecoration(
+                    decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email,
                     color: Colors.white),
                     labelText: 'Email',
-                      focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.white, width: 3.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 1.0),
-                          ),
-                          hintText: 'email:',
-                          hintStyle: TextStyle(color: Colors.white),
-                        ),
+                    focusedBorder:
+                      OutlineInputBorder(
+                        borderSide: BorderSide(
+                        color: Colors.white, width: 3.0),
+                      ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.0),
+                    ),
+                      hintText: 'email:',
+                      hintStyle: TextStyle(color: Colors.white),
+                    ),
             ),
             SizedBox(height: 15),
- 
-            TextField(
+            TextField(//txtNick
                   controller: txtNick,
                   style: TextStyle(
                     color: Colors.white,
@@ -108,7 +99,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
             ),
             SizedBox(height: 15),
       
-            TextField(
+            TextField(//txtNome
                   controller: txtNome,
                   style: TextStyle(
                     color: Colors.white,
@@ -131,7 +122,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
             ),
             SizedBox(height: 15),
 
-            TextField(
+            TextField(//txtNome
               obscureText: true,
               controller: txtSenha,
               style: TextStyle(
@@ -157,7 +148,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
             ),
             
             SizedBox(height: 15),
-            Row(
+            Row(//btnCancelar
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                
@@ -189,6 +180,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
                           textAlign: TextAlign.center,),
                     onPressed: () {
                       criarConta(
+                        txtNick.text,
                         txtNome.text,
                         txtEmail.text,
                         txtSenha.text,
@@ -208,7 +200,10 @@ class _CriarContaPageState extends State<CriarContaPage> {
   //
   // CRIAR CONTA no Firebase Auth
   //
-  void criarConta(nome, email, senha) {
+  Future<void> criarConta(txtNick,nome, email, senha) async {// adicionai apelidos aos usuarios na criação do perfil do aplicativo quando usando email proprio
+      await FirebaseAnalytics.instance.setUserProperty( name: 'Apelido', value: txtNick);
+      await FirebaseAnalytics.instance.setUserProperty( name: 'Nome_completo', value: nome);
+
 
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: senha)

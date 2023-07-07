@@ -31,8 +31,17 @@ Future<void> main() async {
 
   runApp(
     GetMaterialApp(
+        theme: ThemeData(
+    primarySwatch: Colors.blue,
+    useMaterial3: true),
+
+   darkTheme: ThemeData(
+    primarySwatch: Colors.blue,
+    brightness: Brightness.dark,
+    useMaterial3: true,
+  ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/HOME',
+      initialRoute: '/TELA_INICIAL',
       routes: {
         
         '/criar_conta': (context) => CriarContaPage(),// CRIAR UMA CONTA
@@ -50,7 +59,7 @@ Future<void> main() async {
         '/TELA_INICIAL': (context) => Tela_Inicial_ABERTO(), // TELA INICIAL PUBLICA
         '/POST': (context) => ViewPost(), // POSTAGEM 
         '/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
-        '/logingoogle':(context) => LoginPage_google(), //TELA DE LOGIN
+       // '/logingoogle':(context) => LoginPage_google(), //TELA DE LOGIN
         // old
         '/login': (context) => LoginPage(), //TELA DE LOGIN antiga
        // '/UserInfoScreen': (context) =>  UserInfoScreen(user: User, ), 

@@ -1,15 +1,17 @@
-
 // ignore_for_file: camel_case_types
 
 import 'package:bibliotec_s2/Widgets/Login_controller.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class Dados {
   final String txtEmail;
+  final String user;
 
   Dados(
     this.txtEmail,
+    this.user,
   );
 }
 
@@ -29,242 +31,60 @@ class _LoginPage_improved extends State<LoginPage_improved> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 209, 101, 0),
+        color: Colors.blue.shade700,
         padding: EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            Container(
-              margin: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                border: Border.all(
-                  color: Colors.orange.shade300,
-                  width: 8,
-                ),
-              ),
-              child: Image.asset('lib/Img/Generico/logo-bs3bwide.jpg'),
-            ),
-            TextField(
-              controller: txtEmail,
-              cursorColor: Colors.amber.shade300,
-              style: TextStyle(
-                color: Colors.yellow,
-                fontWeight: FontWeight.w300,
-              ),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email, color: Colors.white),
-                labelText: 'Email:',
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 3.0),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1.0),
-                ),
-                hintText: 'Email',
-                hintStyle: TextStyle(color: Colors.white),
+        child: ListView(children: [
+          Container(
+            margin: EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              border: Border.all(
+                color: Colors.orange.shade300,
+                width: 8,
               ),
             ),
-            SizedBox(height: 20),
-            TextField(
-              obscureText: true,
-              controller: txtSenha,
-              keyboardType: TextInputType.visiblePassword,
-              style: TextStyle(
-                color: Colors.yellow,
-                fontWeight: FontWeight.w300,
-              ),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock, color: Colors.white),
-                labelText: 'Senha',
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 3.0),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1.0),
-                ),
-                hintText: 'Senha:',
-                hintStyle: TextStyle(color: Colors.white),
-              ),
+            child: Image.asset('lib/Img/Generico/logo-bs3bwide.jpg'),
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: Obx(
+              () {
+                if (controller.googleAccount.value != null)
+                  return buildProfileView();
+                else
+                  return buildProfileButton();
+              },
             ),
-            SizedBox(height: 40),
-            Container(
-              child: Column(children: [
-                SizedBox(height: 20),
-                SizedBox(
-                  width: 150,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                        width: 4.0,
-                        color: Colors.yellow,
-                      ),
-                      backgroundColor: Color.fromARGB(255, 255, 0, 0),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Entrar',
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isLoading = true;
-                      });
-                      login(txtEmail.text, txtSenha.text);
-                    },
-                  ),
-                ),
-                SizedBox(height: 15),
-                SizedBox(
-                  width: 200,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                        width: 4.0,
-                        color: Colors.yellow,
-                      ),
-                      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Cadastrar Conta',
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              color: Color.fromARGB(255, 0, 0, 0)),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/criar_conta');
-                    },
-                  ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                    margin: const EdgeInsets.all(5),
-                    child: FloatingActionButton.extended(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/logingoogle');
-                      },
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
-                      label: Text('Entrar com Redes sociais'),
-                      icon: Image.asset(
-                        'lib/Img/Generico/googlelogo.jpg',
-                        width: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    )),
-              ]),
-            )
-          ],
-        ),
+          ),
+        ]),
       ),
     );
   }
 
-  void login(email, senha) {
-    // LOGIN com o Firebase Auth
-    var obj = Dados(
-      txtEmail.text,
-    );
-    FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: senha)
-        .then((value) {
-      Navigator.pushReplacementNamed(context, '/Intro', arguments: obj);
-    }).catchError((erro) {
-      if (erro.code == 'user-not-found') {
-        exibirMensagem('ERRO: Usuário não encontrado.');
-      } else if (erro.code == 'wrong-password') {
-        exibirMensagem('ERRO: Senha incorreta.');
-      } else if (erro.code == 'invalid-email') {
-        exibirMensagem('ERRO: Email inválido.');
-      } else {
-        exibirMensagem('ERRO: ${erro.message}.');
-      }
-    });
-  }
-
-  void exibirMensagem(msg) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(msg),
-        duration: Duration(seconds: 2),
-      ),
-    );
-  }
-}
-
-class LoginPage_google extends StatefulWidget {
-  const LoginPage_google({Key? key}) : super(key: key);
-
-  @override
-  _LoginPage_google createState() => _LoginPage_google();
-}
-
-class _LoginPage_google extends State<LoginPage_google> {
-  final controller = Get.put(LoginController());
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Obx(
-          () {
-            if (controller.googleAccount.value != null)
-              return buildProfileView(); 
-              
-            else
-              return buildProfileButton();
-          },
-        ),
-      ),
-    );
-  }
-
-  Column buildProfileView () {
+  Column buildProfileView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-       
-            
-              Column(
-              // LOGO E NOME DO APP
-                children: [
-                Text(
-                  'Biblioteca_s3',
-                  style: TextStyle(
+        Column(
+          // LOGO E NOME DO APP
+          children: [
+            Text(
+              'Biblioteca_s3',
+              style: TextStyle(
                   fontSize: 42,
-                  fontStyle: FontStyle.normal,                 
+                  fontStyle: FontStyle.normal,
                   color: Colors.yellow.shade700),
-                  textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.book_outlined, // INCONE DE CONTA CIRCULAR
-                  size: 100,
-                  color: Colors.red.shade700)
-                  ],
-                ),
-            
-            
-            
-            
-        CircleAvatar(backgroundColor: Colors.deepOrange ,backgroundImage: Image.network(controller.googleAccount.value?.photoUrl ??' ').image, radius: 150),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+
+        CircleAvatar(
+            backgroundColor: Colors.deepOrange,
+            backgroundImage:
+                Image.network(controller.googleAccount.value?.photoUrl ?? ' ')
+                    .image,
+            radius: 150),
         Text(
           controller.googleAccount.value?.displayName ?? '',
           style: Get.textTheme.headlineSmall,
@@ -274,71 +94,41 @@ class _LoginPage_google extends State<LoginPage_google> {
           style: Get.textTheme.headlineSmall,
         ),
         ActionChip(
-
           label: Text('Desconectar da plataforma'),
           avatar: Icon(Icons.logout),
           onPressed: () {
             controller.logout();
           },
-
-          
         ),
-
-         ActionChip(
+        ActionChip(
           label: Text('Acessar Painel'),
           avatar: Icon(Icons.chevron_right),
           onPressed: () {
             Navigator.pushNamed(context, '/HOME');
-          },)
+          },
+        )
       ],
     );
   }
 
 //style: TextStyle(fontWeight: FontWeight.bold),
-  FloatingActionButton buildProfileButton() {
-    return FloatingActionButton.extended(
-      onPressed: () {
-        controller.login();
-      },
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      label: Text('Entrar com Google'),
-      icon: Image.asset(
-        'lib/Img/Generico/googlelogo.jpg',
-        width: 30,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-  FloatingActionButton buildProfileViewApple() {
-    return FloatingActionButton.extended(
-      onPressed: () {
-        controller.login();
-      },
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      label: Text('Entrar com apple'),
-      icon: Image.asset(
-        'lib/Img/Generico/applelogo.jpg',
-        width: 30,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-FloatingActionButton buildProfileViewFacebook() {
-    return FloatingActionButton.extended(
-      onPressed: () {
-        controller.login();
-      },
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      label: Text('Entrar com apple'),
-      icon: Image.asset(
-        'lib/Img/Generico/facebooklogo.jpg',
-        width: 30,
-        fit: BoxFit.cover,
-      ),
+  Column buildProfileButton() {
+    return Column(
+      children: [
+        FloatingActionButton.extended(
+          onPressed: () {
+            controller.login();
+          },
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          label: Text('Entrar com Google'),
+          icon: Image.asset(
+            'lib/Img/Generico/googlelogo.jpg',
+            width: 30,
+            fit: BoxFit.cover,
+          ),
+        )
+      ],
     );
   }
 }
-
