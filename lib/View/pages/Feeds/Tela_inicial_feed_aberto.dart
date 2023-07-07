@@ -6,15 +6,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Tela_Inicial_ABERTO extends StatefulWidget {
-  const Tela_Inicial_ABERTO({ Key? key }) : super(key: key);
+  const Tela_Inicial_ABERTO({Key? key}) : super(key: key);
 
   @override
   State<Tela_Inicial_ABERTO> createState() => _Tela_Inicial_ABERTOState();
 }
 
 class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
- 
-    var historias;
+  var historias;
 
   @override
   void initState() {
@@ -22,43 +21,45 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
 
     historias = FirebaseFirestore.instance.collection('Historias');
   }
+
   exibirItemColecao(item) {
     String titulo = item.data()['titulo'];
     String subtitulo = item.data()['subtitulo'];
     return Container(
       margin: EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15.0)),
-              border: Border.all(
-                color: Colors.orange.shade300,
-                width: 1,
-              ),
-            ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        border: Border.all(
+          color: Colors.orange.shade300,
+          width: 1,
+        ),
+      ),
       child: Column(
         children: [
+          Container(
+            //TITULO
 
-          Container(  //TITULO
-          
             child: Text(
               titulo,
               style: const TextStyle(
-                fontSize: 25,
-                color: Color.fromARGB(255, 236, 205, 64),
-                fontWeight: FontWeight.bold
-                ),
+                  fontSize: 25,
+                  color: Color.fromARGB(255, 236, 205, 64),
+                  fontWeight: FontWeight.bold),
             ),
           ),
-          Container(//SUBTITULO
+                   Divider(),
+          Container(
+            //SUBTITULO
             child: Text(
               subtitulo,
               style: const TextStyle(
-                fontSize: 16,
-                color: Color.fromARGB(255, 236, 205, 64),
-                fontWeight: FontWeight.normal
-                ),
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 236, 205, 64),
+                  fontWeight: FontWeight.normal),
             ),
           ),
-          Container(// imagem
+          Container(
+            // imagem
             margin: EdgeInsets.all(50.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -67,27 +68,31 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                 width: 18,
               ),
             ),
-            child: Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
+            child:
+                Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
           ),
           Row(
-         mainAxisAlignment: MainAxisAlignment.center,
-            children: [              
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 202, 77, 61),
-                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   ),
                   onPressed: () async {
-                  Navigator.pushNamed(context, '/POST',
-                      arguments: ({"uid": item.id,"titulo_pub": titulo,
-                        "autor_pub": item.data()['autor'],"subtitulo_pub": item.data()['subtitulo'],
-                        "texto": item.data()['sinopse']
-                      }));
-                },
+                    Navigator.pushNamed(context, '/POST',
+                        arguments: ({
+                          "uid": item.id,
+                          "titulo_pub": titulo,
+                          "autor_pub": item.data()['autor'],
+                          "subtitulo_pub": item.data()['subtitulo'],
+                          "texto": item.data()['sinopse']
+                        }));
+                  },
                   child: Text('Continuar lendo'))
             ],
           ),
-      
         ],
       ),
     );
@@ -99,83 +104,66 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
       appBar: AppBar(
         title: Text('Acervo'),
         centerTitle: true,
-        
-        
         backgroundColor: Colors.red,
         automaticallyImplyLeading: true,
         actions: [
-         /* IconButton(
+          /* IconButton(
             icon: Icon(Icons.logout_outlined),
             onPressed: () async {
               FirebaseAuth.instance.signOut();
               Navigator.pushReplacementNamed(context, '/login');
             },
           ),*/
-
-          
         ],
-        
       ),
       drawer: Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children:  <Widget>[DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.transparent
-          ),
-          child: Text(
-            'Biblioteca_S2',
-            style: TextStyle(
-              color: Color.fromARGB(255, 4, 69, 165),
-              fontSize: 24,
-               height: 3.5,
-               letterSpacing: 5,
-              decoration: TextDecoration.overline, //make underline
-              decorationStyle: TextDecorationStyle.solid,
-               decorationThickness: 1,
-              fontStyle: FontStyle.italic,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.transparent),
+              child: Text(
+                'Biblioteca_S2',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 4, 69, 165),
+                  fontSize: 24,
+                  height: 3.5,
+                  letterSpacing: 5,
+                  decoration: TextDecoration.overline, //make underline
+                  decorationStyle: TextDecorationStyle.solid,
+                  decorationThickness: 1,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
             ),
-          ),
+            ListTile(
+              leading: Icon(Icons.g_mobiledata),
+              title: Text('Entrar Com google'),
+              onTap: () => Navigator.pushNamed(context, '/login_improved'),
+            ),
+            ListTile(
+              leading: Icon(Icons.login),
+              title: Text('Entrar Com Email'),
+              onTap: () => Navigator.pushNamed(context, '/login'),
+            ),
+            ListTile(
+              leading: Icon(Icons.login),
+              title: Text('Cadastrar conta'),
+              onTap: () => Navigator.pushNamed(context, '/criar_conta'),
+            ),
+            ListTile(
+              leading: Icon(Icons.book),
+              title: Text('Historias'),
+              onTap: () => Navigator.pushNamed(context, '/TELA_INICIAL'),
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('Sobre'),
+              onTap: () => Navigator.pushNamed(context, '/sobre'),
+            ),
+          ],
         ),
-        
-        
-
-        ListTile(
-          leading: Icon(Icons.g_mobiledata),
-          title: Text('Entrar Com google'),
-          onTap: ()=> Navigator.pushNamed(context, '/login_improved'),
-
-        ),
-        ListTile(
-          leading: Icon(Icons.login),
-          title: Text('Entrar Com Email'),
-          onTap: ()=> Navigator.pushNamed(context, '/login'),
-
-        ),
-        ListTile(
-          leading: Icon(Icons.login),
-          title: Text('Cadastrar conta'),
-          onTap: ()=> Navigator.pushNamed(context, '/criar_conta'),
-
-        ),
-        ListTile(
-          leading: Icon(Icons.book),
-          title: Text('Historias'),
-          onTap: ()=> Navigator.pushNamed(context, '/TELA_INICIAL'),
-        ),
-        ListTile(
-          leading: Icon(Icons.info),
-          title: Text('Sobre'),
-           onTap: ()=> Navigator.pushNamed(context, '/sobre'),
-          
-        ),
-      ],
-    ),
-  ),
-  
-
-
-
+      ),
 
       backgroundColor: Colors.blue.shade900,
 
@@ -211,14 +199,94 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             }
           }),
 
-     /* floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.yellow.shade600,
         backgroundColor: Colors.green.shade600,
-        child: Icon(Icons.add),
+        child: Icon(Icons.search),
         onPressed: () {
-          Navigator.pushNamed(context, '/NovaHistoria');
+          var txtpesquisa;
+          String gender = 'titulo';
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.transparent, width: 6),
+                    color: Colors.transparent,
+                  ),
+                  child: Column(
+                    //mainAxisSize: MainAxisSize.max,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: Text('Pesquisar'),
+                        icon: Icon(Icons.search),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent,
+                        ),
+                      ),
+                      TextField(
+                        controller: txtpesquisa,
+                        cursorColor: Colors.black,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search, color: Colors.red),
+                          labelText: 'Pesquise:',
+                          labelStyle: TextStyle(
+                            color: Colors.red, //<-- SEE HERE
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 0),
+                          ),
+                          hintText: 'O que você procura?',
+                          hintStyle: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          // radio buttoons
+                          //mainAxisSize: MainAxisSize.max,
+                          //mainaxisalignment: MainAxisAlignment.Center,
+                          RadioListTile(
+                            title: Text("Titulo"),
+                            value: "titulo",
+                            groupValue: gender,
+                            onChanged: (value) {
+                              setState(() {
+                                gender = value.toString();
+                              });
+                            },
+                          ),
+
+                          RadioListTile(
+                            title: Text("Subtitulo"),
+                            value: "subtitulo",
+                            groupValue: gender,
+                            onChanged: (value) {
+                              setState(() {
+                                gender = value.toString();
+                              });
+                            },
+                          ),
+                                   Divider(),
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              });
+
+          //-----botão com InsetsController
         },
-      ),*/
+      ),
     );
   }
 }
