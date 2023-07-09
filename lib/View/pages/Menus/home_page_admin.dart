@@ -1,4 +1,6 @@
 
+// ignore_for_file: camel_case_types
+import 'minha_conta.dart';
 import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
 import 'package:flutter/material.dart';
 import 'Main_menu.dart';
@@ -16,10 +18,9 @@ class _HomePageState extends State<HomePage> {
         body: PageView(
         controller: pageController,
         children: [
-          Dashboard_adm(),
-          Lista_acervo_listview(),
-           
-          
+        Minha_conta(), // MINHA CONTA VIZIO
+        Dashboard_adm(),
+        Lista_acervo_listview(),
         ],
         onPageChanged: (index) {
           setState(() {
@@ -40,12 +41,16 @@ class _HomePageState extends State<HomePage> {
         items: [
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.psychology_alt_rounded ),
-            label: 'Opções',
+            icon: Icon(Icons.person_outline ),
+            label: 'Perfil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.paste),
+            label: 'Operações',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.feed_outlined),
-            label: 'Home',
+            label: 'Feed',
           ),
          
           
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
           });
           pageController.animateToPage(
             index,
-            duration: Duration(milliseconds: 200),
+            duration: Duration(milliseconds: 300),
             curve: Curves.easeIn,
           );
         },

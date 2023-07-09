@@ -16,10 +16,16 @@ class _ViewPostState extends State<ViewPost> {
     String subtituloPub = data['subtitulo_pub'];
     String autorPub = data['autor_pub'];
     String texto = data['texto'];
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text('Sobre'),
+      ),
+      body: Container(
       color: const Color.fromARGB(255, 255, 255, 255),
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(5),
         child: ListView(
+          
           children: [
             Container(
               child: Column(children: [
@@ -28,7 +34,7 @@ class _ViewPostState extends State<ViewPost> {
                     Container(
                       child: Text(
                         tituloPub,
-                        style: TextStyle(height: 5, fontSize: 30, color: Colors.black),
+                        style: TextStyle(height: 1, fontSize: 30, color: Colors.black),
                       ),
                     ),
                     Container(
@@ -50,7 +56,7 @@ class _ViewPostState extends State<ViewPost> {
                       child: Text(
                         texto,
                         style: const TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 16, color: Colors.black),
+                            fontStyle: FontStyle.italic, fontSize: 16, color: Colors.black,height: 1.5),
                       ),
                     ),
                     Container(
@@ -70,7 +76,7 @@ class _ViewPostState extends State<ViewPost> {
                     ),
                   ],
                 ),
-                Row(
+               /* Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -89,11 +95,21 @@ class _ViewPostState extends State<ViewPost> {
                       ),
                     ),
                   ],
-                ),
+                ),*/
+
               ]),
             ),
           ],
         ),
+    ),
+    floatingActionButton: FloatingActionButton(
+            foregroundColor: Colors.yellow.shade600,
+            backgroundColor: Colors.redAccent,
+            child: Icon(Icons.favorite_rounded),
+            onPressed: () {
+              //_displayTextInputDialog(context);
+            })
+
       );
     
   }

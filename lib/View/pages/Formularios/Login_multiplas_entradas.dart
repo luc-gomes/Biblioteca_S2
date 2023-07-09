@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:bibliotec_s2/Widgets/Login_controller.dart';
- 
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +17,8 @@ class Dados {
 
 class LoginPage_improved extends StatefulWidget {
   const LoginPage_improved({Key? key}) : super(key: key);
+
+  
 
   @override
   _LoginPage_improved createState() => _LoginPage_improved();
@@ -78,7 +80,6 @@ class _LoginPage_improved extends State<LoginPage_improved> {
             ),
           ],
         ),
-
         CircleAvatar(
             backgroundColor: Colors.deepOrange,
             backgroundImage:
@@ -104,6 +105,9 @@ class _LoginPage_improved extends State<LoginPage_improved> {
           label: Text('Acessar Painel'),
           avatar: Icon(Icons.chevron_right),
           onPressed: () {
+
+
+
             Navigator.pushNamed(context, '/HOME');
           },
         )
@@ -131,4 +135,8 @@ class _LoginPage_improved extends State<LoginPage_improved> {
       ],
     );
   }
+
+  
+    
+  
 }

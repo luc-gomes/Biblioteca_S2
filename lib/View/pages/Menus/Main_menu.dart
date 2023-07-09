@@ -20,6 +20,7 @@ class _Dashboard_admState extends State<Dashboard_adm> {
       backgroundColor: Colors.black,
       ),
       body:
+
 //------------------------------------------------------------------------------
           Container(
             color: Colors.brown.shade300,
@@ -28,39 +29,22 @@ class _Dashboard_admState extends State<Dashboard_adm> {
             padding: const EdgeInsets.all(30),
             crossAxisSpacing: 20,
             mainAxisSpacing: 50,
-            crossAxisCount: 3,
+            crossAxisCount: 2,
             children: <Widget>[
 //---------------------------------------blocos menu----------------------------
               Container(//Blocos 0 - Nova Historia
                             
                 child: Column(
                   children: [
-                    Container(
-                      child: IconButton(
-                        icon: Icon(Icons.add),
-                        iconSize: 40,
-                        color: Colors.black,
-                        onPressed: () {
-                          setState(() {
-                               Navigator.pushNamed(context, '/NovaHistoria');
-                               Icon(Icons.favorite_border_sharp);
-                          });
-                        },
-                      ),
-                    ),
-                    Container(//TEXTO
-                      
-                      child:Align(alignment: Alignment.center,
-                        child:  Text(
-                        'Add Historia',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontStyle: FontStyle.normal,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),),
+                    ActionChip(
+
+          label: Text('Add Historia'),
+          avatar: Icon(Icons.logout),
+          onPressed: () {
+            Navigator.pushNamed(context, '/NovaHistoria');
+          },),
+                     
+                 
                   ],
                 ),
                 color: Colors.transparent,
@@ -69,35 +53,13 @@ class _Dashboard_admState extends State<Dashboard_adm> {
               Container(//Blocos 1 - Lista de historias
                 padding: const EdgeInsets.all(3),
                 child: Column(
-                  children: [
-                    Container(//INCONE
-                      child: IconButton(
-                        icon: Icon(Icons.book_rounded),
-                        iconSize: 40,
-                        color: Colors.black,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/Listar_acervo');
-                          setState(() {
-                            // colocar alguma ação aqui
-                            Icon(Icons.headphones);
-                          });
-                        },
-                      ),
-                    ),
-                    Container(//TEXTO
-                    child:Align(alignment: Alignment.center,
-                        child: Text(
-                          
-                        'Lista acervo',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          
-                          fontSize: 17,
-                          fontStyle: FontStyle.normal,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),),
+                  children: [ ActionChip(
+
+          label: Text('lista'),
+          avatar: Icon(Icons.logout),
+          onPressed: () {
+            Navigator.pushNamed(context, '/AcervoListview');
+          },),
                   ],
                 ),
                 color: Colors.transparent,

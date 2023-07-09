@@ -39,6 +39,7 @@ dependencies:
   google_sign_in_web: ^0.12.0+2
   get: ^4.6.5
   firebase_analytics: ^10.4.3
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

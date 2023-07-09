@@ -54,27 +54,27 @@ class _Minha_contaState extends State<Minha_conta> {
                   ),
                 ],
               ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.book_outlined, // INCONE DE CONTA CIRCULAR
-                  size: 100,
-                  color: Colors.red.shade700)
-                  ],
-                ),
-            
+              
             
             
             
         CircleAvatar(backgroundColor: Colors.deepOrange ,backgroundImage: Image.network(controller.googleAccount.value?.photoUrl ??' ').image, radius: 150),
+        Text('Seu nome:',
+          style: Get.textTheme.displayMedium,
+        ),
         Text(
           controller.googleAccount.value?.displayName ?? '',
-          style: Get.textTheme.headlineSmall,
+          style: Get.textTheme.headlineMedium,
+        ),
+        Text('Email?',
+          style: Get.textTheme.displaySmall,
         ),
         Text(
           controller.googleAccount.value?.email ?? '',
-          style: Get.textTheme.headlineSmall,
+          style: Get.textTheme.labelMedium,
         ),
+        
+       
         ActionChip(
 
           label: Text('Desconectar da plataforma'),
@@ -85,13 +85,7 @@ class _Minha_contaState extends State<Minha_conta> {
 
           
         ),
-
-         ActionChip(
-          label: Text('Acessar Painel'),
-          avatar: Icon(Icons.chevron_right),
-          onPressed: () {
-            Navigator.pushNamed(context, '/HOME');
-          },)
+ 
       ],
     );
   }

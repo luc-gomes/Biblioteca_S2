@@ -1,7 +1,8 @@
+ 
+
 import 'package:bibliotec_s2/View/pages/Feeds/Tela_inicial_feed_aberto.dart';
 import 'package:bibliotec_s2/View/pages/Conteudo/conteudo_publicacao.dart';
-import 'package:bibliotec_s2/View/pages/Formularios/Login_multiplas_entradas.dart';
- 
+import 'package:bibliotec_s2/View/pages/Formularios/Login_animado.dart';
 import 'package:bibliotec_s2/View/pages/Menus/Tela_sobre.dart';
 import 'package:bibliotec_s2/View/pages/Menus/home_page_admin.dart';
 import 'package:bibliotec_s2/View/pages/Feeds/lista_acervo_com_fotos.dart';
@@ -43,9 +44,7 @@ Future<void> main() async {
       debugShowCheckedModeBanner: false,
       initialRoute: '/TELA_INICIAL',
       routes: {
-        
         '/criar_conta': (context) => CriarContaPage(),// CRIAR UMA CONTA
-        '/FeedBlocos01': (context) => FeedBlocos01(), // OLD
         '/cadastro': (context) => CadastroPage(), // CADASTRAR HISTORIAS
         '/menu_opcoes': (context) => Dashboard_adm(), //MENU DE OPÇOES ADMIN
         '/NovaHistoria': (context) => NovaHistoria(),//  // CADASTRAR HISTORIAS
@@ -58,12 +57,13 @@ Future<void> main() async {
         '/Tijolometro': (context) => ConstrutorDEhistorias(), // FORMULARIO DE CADASTRO DE PUBLICAÇOES
         '/TELA_INICIAL': (context) => Tela_Inicial_ABERTO(), // TELA INICIAL PUBLICA
         '/POST': (context) => ViewPost(), // POSTAGEM 
-        '/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
-       // '/logingoogle':(context) => LoginPage_google(), //TELA DE LOGIN
-        // old
+        '/login_improved': (context) => LoginPage_improved_animated(), 
+        //'/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
+        //OLD 
         '/login': (context) => LoginPage(), //TELA DE LOGIN antiga
-       // '/UserInfoScreen': (context) =>  UserInfoScreen(user: User, ), 
-       '/menu_opcoesold': (context) => Painel_de_colecoes(), //MENU DE OPÇOES ADMIN
+        // '/UserInfoScreen': (context) =>  UserInfoScreen(user: User, ), 
+        '/menu_opcoesold': (context) => Painel_de_colecoes(), //MENU DE OPÇOES ADMIN
+        '/FeedBlocos01': (context) => FeedBlocos01(), // OLD
       },
     ),
   );
