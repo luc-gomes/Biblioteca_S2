@@ -3,6 +3,7 @@
 /* objetivo: fazer um menu de conta de usuario para mexer em opçoes de visualização e editar informaçoes pessoais da conta*/
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Tela_Inicial_ABERTO extends StatefulWidget {
@@ -14,10 +15,9 @@ class Tela_Inicial_ABERTO extends StatefulWidget {
 
 class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
   var historias;
-   String? codeDialog;
+  String? codeDialog;
   String? valueText;
-  final TextEditingController _textFieldController = TextEditingController();
-
+  
   @override
   void initState() {
     super.initState();
@@ -25,164 +25,92 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
     historias = FirebaseFirestore.instance.collection('Historias');
   }
 
-  exibirItemColecao(item, codeDialog) {
-    if (codeDialog == null) {
-      String titulo = item.data()['titulo'];
-      String subtitulo = item.data()['subtitulo'];
-      return Container(
-        margin: EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-          border: Border.all(
-            color: Colors.orange.shade300,
-            width: 1,
-          ),
-        ),
-        child: Column(
-          children: [
-            Container(
-              //TITULO
+  exibirItemColecao(item) {
+    String titulo = item.data()['titulo'];
+    String subtitulo = item.data()['subtitulo'];
+    return Container(
+      margin: EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              border: Border.all(
+                color: Colors.orange.shade300,
+                width: 1,
+              ),
+            ),
+      child: Column(
+        children: [
 
-              child: Text(
-                titulo,
-                style: const TextStyle(
-                    fontSize: 25,
-                    color: Color.fromARGB(255, 236, 205, 64),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Divider(),
-            Container(
-              //SUBTITULO
-              child: Text(
-                subtitulo,
-                style: const TextStyle(
-                    fontSize: 16,
-                    color: Color.fromARGB(255, 236, 205, 64),
-                    fontWeight: FontWeight.normal),
-              ),
-            ),
-            Container(
-              // imagem
-              margin: EdgeInsets.all(50.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                border: Border.all(
-                  color: Colors.orange.shade300,
-                  width: 18,
-                ),
-              ),
-              child:
-                  Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                 ActionChip(
-          label: Text('Ler conteúdo'),
-          avatar: Icon(Icons.chevron_right),
-          backgroundColor: Colors.red.shade700,
-          onPressed: () async {
-                      Navigator.pushNamed(context, '/POST',
-                          arguments: ({
-                            "uid": item.id,
-                            "titulo_pub": titulo,
-                            "autor_pub": item.data()['autor'],
-                            "subtitulo_pub": item.data()['subtitulo'],
-                            "texto": item.data()['sinopse']
-                          }));
-                    },
+          Container(  //TITULO
           
-        )
-             ],
-            ),
-          ],
-        ),
-      );
-    } else {
-      String titulo = item.data()['titulo'].contains(codeDialog);
-      String subtitulo = item.data()['subtitulo'];
-      return Container(
-          margin: EdgeInsets.all(10.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
-            border: Border.all(
-              color: Colors.orange.shade300,
-              width: 1,
+            child: Text(
+              titulo,
+              style: const TextStyle(
+                fontSize: 25,
+                color: Color.fromARGB(255, 236, 205, 64),
+                fontWeight: FontWeight.bold
+                ),
             ),
           ),
-          child: Column(
-            children: [
-              Container(
-                //TITULO
-
-                child: Text(
-                  titulo,
-                  style: const TextStyle(
-                      fontSize: 25,
-                      color: Color.fromARGB(255, 236, 205, 64),
-                      fontWeight: FontWeight.bold),
+          Container(//SUBTITULO
+            child: Text(
+              subtitulo,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Color.fromARGB(255, 236, 205, 64),
+                fontWeight: FontWeight.normal
                 ),
+            ),
+          ),
+          Container(// imagem
+            margin: EdgeInsets.all(50.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              border: Border.all(
+                color: Colors.orange.shade300,
+                width: 18,
               ),
-              Divider(),
-              Container(
-                //SUBTITULO
-                child: Text(
-                  subtitulo,
-                  style: const TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 236, 205, 64),
-                      fontWeight: FontWeight.normal),
-                ),
-              ),
-              Container(
-                // imagem
-                margin: EdgeInsets.all(50.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  border: Border.all(
-                    color: Colors.orange.shade300,
-                    width: 18,
-                  ),
-                ),
-                child: Image.asset(
-                    'lib/Img/Generico/imagem ilustrativa marron.jpg'),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 202, 77, 61),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-                      ),
-                      onPressed: () async {
-                        Navigator.pushNamed(context, '/POST',
-                            arguments: ({
-                              "uid": item.id,
-                              "titulo_pub": titulo,
-                              "autor_pub": item.data()['autor'],
-                              "subtitulo_pub": item.data()['subtitulo'],
-                              "texto": item.data()['sinopse']
-                            }));
-                      },
-                      child: Text('Continuar lendo'))
-                ],
-              ),
-            ],
-          ));
+            ),
+            child: Image.asset('lib/Img/Generico/imagem ilustrativa marron.jpg'),
+          ),
+          Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+            children: [ 
+              
+              FloatingActionButton.extended(
+                label: Text('continuar leitura'),
+            foregroundColor: Colors.black54,
+            backgroundColor:  Colors.white12.withOpacity(0.85),
+            icon: Icon(Icons.search),
+            onPressed: () async {
+                  Navigator.pushNamed(context, '/POST',
+                      arguments: ({"uid": item.id,"titulo_pub": titulo,
+                        "autor_pub": item.data()['autor'],"subtitulo_pub": item.data()['subtitulo'],
+                        "texto": item.data()['sinopse']
+                      }));
+                },)    ]         
+             
+          ),
+      
+        ],
+      ),
+    );
+      
     }
-  }
+  
+
+
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      
+      home: Scaffold(
         appBar: AppBar(
-          title: Text('Acervo'),
-          centerTitle: true,
-          backgroundColor: Colors.red,
+          
           automaticallyImplyLeading: true,
+          centerTitle: true,
+          backgroundColor: Colors.redAccent.shade200,
           actions: [
             /* IconButton(
             icon: Icon(Icons.logout_outlined),
@@ -192,7 +120,11 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             },
           ),*/
           ],
-        ),
+          title: CupertinoSearchTextField(
+            
+            )),
+        
+          
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -200,7 +132,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
               DrawerHeader(
                 decoration: BoxDecoration(color: Colors.transparent),
                 child: Text(
-                  'Biblioteca_S2',
+                  'Biblioteca_S3',
                   style: TextStyle(
                     color: Color.fromARGB(255, 4, 69, 165),
                     fontSize: 24,
@@ -241,8 +173,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             ],
           ),
         ),
-        backgroundColor: Colors.blue.shade900,
-
+        backgroundColor: Colors.white12,
         //
         // LISTAR os documentos da COLEÇÃO
         //
@@ -270,7 +201,8 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                   return ListView.builder(
                       itemCount: dados.size,
                       itemBuilder: (context, index) {
-                        return exibirItemColecao(dados.docs[index], codeDialog);
+
+                        return exibirItemColecao(dados.docs[index]);
                       });
               }
             }),
@@ -279,15 +211,15 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             backgroundColor: Colors.green.shade600,
             child: Icon(Icons.search),
             onPressed: () {
-              _displayTextInputDialog(context);
+              //_displayTextInputDialog(context);
+              Navigator.pushNamed(context, '/pesquisa', arguments: codeDialog);
             })
 
         //-----botão com InsetsController
 
-        );
+        ),);
   }
-
- 
+/*
   Future<void> _displayTextInputDialog(BuildContext context) async {
     return showDialog(
         context: context,
@@ -305,7 +237,6 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                   const InputDecoration(hintText: "Digite o que você procura"),
             ),
             actions: <Widget>[
-              
               MaterialButton(
                 color: Colors.red,
                 textColor: Colors.white,
@@ -323,12 +254,14 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                 onPressed: () {
                   setState(() {
                     codeDialog = valueText;
-                    Navigator.pushNamed(context, '/TELA_INICIAL', arguments: codeDialog );
+                    // Navigator.pushNamed(context, '/TELA_INICIAL', arguments: codeDialog );
+                    ;
                   });
                 },
               ),
             ],
           );
         });
-  }
+        
+  }*/
 }

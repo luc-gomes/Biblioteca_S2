@@ -74,7 +74,7 @@ class _Lista_acervo_listviewState extends State<Lista_acervo_listview> {
               icon: const Icon(Icons.input,
               size: 35.0,
               ),
-              onPressed: ()                 async {
+              onPressed: () async {
                   Navigator.pushNamed(context, '/POST',
                       arguments: ({"uid": item.id,"titulo_pub": titulo,
                         "autor_pub": item.data()['autor'],"subtitulo_pub": item.data()['subtitulo'],

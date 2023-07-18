@@ -2,6 +2,7 @@
 
 import 'package:bibliotec_s2/View/pages/Feeds/Tela_inicial_feed_aberto.dart';
 import 'package:bibliotec_s2/View/pages/Conteudo/conteudo_publicacao.dart';
+import 'package:bibliotec_s2/View/pages/Feeds/feed_Pesquisa.dart';
 import 'package:bibliotec_s2/View/pages/Formularios/Login_animado.dart';
 import 'package:bibliotec_s2/View/pages/Menus/Tela_sobre.dart';
 import 'package:bibliotec_s2/View/pages/Menus/home_page_admin.dart';
@@ -13,6 +14,8 @@ import 'package:bibliotec_s2/View/pages/Formularios/nova_historia.dart';
 import 'package:bibliotec_s2/arquivo%20morto/blocas002.dart';
 import 'package:bibliotec_s2/arquivo%20morto/listar_acervo.dart';
  // imports firebse
+//import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -59,6 +62,7 @@ Future<void> main() async {
         '/POST': (context) => ViewPost(), // POSTAGEM 
         '/login_improved': (context) => LoginPage_improved_animated(), 
         //'/login_improved': (context) => LoginPage_improved(), //TELA DE LOGIN
+         '/pesquisa': (context) => Feed_pesquisa(),// CRIAR UMA CONTA
         //OLD 
         '/login': (context) => LoginPage(), //TELA DE LOGIN antiga
         // '/UserInfoScreen': (context) =>  UserInfoScreen(user: User, ), 
