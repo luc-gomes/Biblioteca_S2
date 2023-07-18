@@ -11,6 +11,7 @@ class _NovaHistoriaState extends State<NovaHistoria> {
   var txtSubtitulo = TextEditingController();
   var txtAutor = TextEditingController();
   var txtSinopse = TextEditingController();
+  var  isChecked = true;
   getDocumentById(id) async {
     await FirebaseFirestore.instance
         .collection('Historias')
@@ -22,6 +23,7 @@ class _NovaHistoriaState extends State<NovaHistoria> {
       txtSubtitulo.text = doc.get('subtitulo');
       txtAutor.text = doc.get('autor');
       txtSinopse.text = doc.get('sinopse');
+       isChecked = doc.get('visibilidade');
     
     });
   }
@@ -43,6 +45,8 @@ class _NovaHistoriaState extends State<NovaHistoria> {
           'sinopse': txtSinopse.text,
           'subtitulo': txtSubtitulo.text,
           'titulo': txtTitulo.text,
+          'visibilidade': isChecked,
+          
         });
       } else {
         FirebaseFirestore.instance
@@ -53,12 +57,14 @@ class _NovaHistoriaState extends State<NovaHistoria> {
           'sinopse': txtSinopse.text,
           'subtitulo': txtSubtitulo.text,
           'titulo': txtTitulo.text,
+          'visibilidade': isChecked,
+          
         });
       }
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Operação realizada com sucesso!'),
-          duration: Duration(seconds: 2),
+          duration: Duration(seconds: 3),elevation: BorderSide.strokeAlignCenter,
         ),
       );
       Navigator.pop(context);
@@ -88,6 +94,18 @@ class _NovaHistoriaState extends State<NovaHistoria> {
       body: Container(
         padding: const EdgeInsets.all(30),
         child: ListView(children: [
+          Row(children: [
+            Text('Vidibilidade'),
+            Checkbox(
+            checkColor: Colors.white,
+           // fillColor: Colors.amber,
+            value: isChecked,
+            onChanged: (bool? value) {
+            setState(() {
+              isChecked = value!;
+            });}),
+
+          ],),
           TextField(
             // TITULO
             controller: txtTitulo,
