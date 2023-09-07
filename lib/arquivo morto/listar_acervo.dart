@@ -28,6 +28,7 @@ class _Listar_acervoState extends State<Listar_acervo> {
   //
   exibirItemColecao(item) {
     // função re retorna um listtile
+    
     String titulo = item.data()['titulo'];
     String autor = item.data()['autor'];
 

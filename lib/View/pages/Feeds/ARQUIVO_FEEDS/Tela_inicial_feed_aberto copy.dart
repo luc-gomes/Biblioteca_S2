@@ -248,8 +248,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
         body: StreamBuilder<QuerySnapshot>(
             //fonte de dados (coleção)
             stream: historias.snapshots(),
-
-            //exibir os dados retornados
+ 
             builder: (context, snapshot) {
               //verificar o estado da conexão
               switch (snapshot.connectionState) {

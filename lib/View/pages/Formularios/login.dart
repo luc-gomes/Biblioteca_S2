@@ -177,10 +177,11 @@ class _LoginPageState extends State<LoginPage> {
     var obj = Dados(
       txtEmail.text,
     );
+
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: senha)
         .then((value) {
-      Navigator.pushReplacementNamed(context, '/Intro', arguments: obj);
+      Navigator.pushReplacementNamed(context, '/HOME', arguments: obj);
     }).catchError((erro) {
       if (erro.code == 'user-not-found') {
         exibirMensagem('ERRO: Usuário não encontrado.');

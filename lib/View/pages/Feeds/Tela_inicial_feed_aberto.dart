@@ -25,15 +25,13 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
 
     historias = FirebaseFirestore.instance
         .collection('Historias')
-        .where('visibilidade', isEqualTo: true)
-        .where('titulo', arrayContains: pesquisa);
+        .where('visibilidade', isEqualTo: true);
   }
 
   exibirItemColecao(item) {
     String titulo = item.data()['titulo'];
     String subtitulo = item.data()['subtitulo'];
 
-   
     return Container(
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
@@ -103,18 +101,36 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
               icon: Icon(Icons.search),
               onPressed: () async {
                 showModalBottomSheet(
+                    isDismissible: true,
+                    enableDrag: true,
+                    isScrollControlled: true,
                     context: context,
                     builder: (context) {
                       return Container(
+                        height: 200.0,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: Color.fromARGB(255, 0, 0, 0), width: 6),
+                              color: Color.fromARGB(255, 0, 0, 0), width: 1),
                           color: Colors.transparent,
                         ),
                         child: ListView(
                           children: [
+                            const SizedBox(height: 20),
+                            Row(
+                              children: [
+                                const Spacer(),
+                                Container(
+                                  height: 5,
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                Spacer(),
+                              ],
+                            ),
                             Container(
-                              //SUBTITULO
                               child: Text(
                                 'Previa do texto',
                                 style: const TextStyle(
@@ -162,35 +178,33 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            automaticallyImplyLeading: true,
-            centerTitle: true,
-            backgroundColor: Colors.redAccent.shade200,
-            actions: [
-              /* IconButton(
+          automaticallyImplyLeading: true,
+          centerTitle: true,
+          backgroundColor: Colors.redAccent.shade200,
+          actions: [
+            /* IconButton(
             icon: Icon(Icons.logout_outlined),
             onPressed: () async {
               FirebaseAuth.instance.signOut();
               Navigator.pushReplacementNamed(context, '/login');
             },
           ),*/
-            ],
-            toolbarHeight: 88,
-            title: Row(children: [
-              Image.asset(
-                                  'lib/Img/Generico/logo-bs3bwide.jpg', 
-                                  fit: BoxFit.contain,
-                                  height: 60,
-                                  alignment: FractionalOffset.center,
-                                  opacity: const AlwaysStoppedAnimation(.7),
-
-                                ),
-                                 Container(padding: const EdgeInsets.all(13.0),
-                                  child: Text('Biblioteca S3'),
-                  )
-                  ]
-                  ),
-                  ),
-                  
+          ],
+          toolbarHeight: 88,
+          title: Row(children: [
+            Image.asset(
+              'lib/Img/Generico/logo-bs3bwide.jpg',
+              fit: BoxFit.contain,
+              height: 60,
+              alignment: FractionalOffset.center,
+              opacity: const AlwaysStoppedAnimation(.7),
+            ),
+            Container(
+              padding: const EdgeInsets.all(13.0),
+              child: Text('Biblioteca S3'),
+            )
+          ]),
+        ),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -276,30 +290,28 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
             backgroundColor: Colors.green.shade600,
             child: Icon(Icons.search),
             onPressed: () {
-              //_displayTextInputDialog(context);
-              Navigator.pushNamed(context, '/pesquisa', arguments: codeDialog);
+              _displayTextInputDialog(context);
+              //Navigator.pushNamed(context, '/pesquisa', arguments: pesquisa);
             })
 
         //-----botão com InsetsController
 
         );
   }
-/*
+
   Future<void> _displayTextInputDialog(BuildContext context) async {
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('O que você procura?'),
+            //title: const Text('O que você procura?'),
             content: TextField(
-              onChanged: (value) {
-                setState(() {
-                  valueText = value;
-                });
-              },
-              controller: _textFieldController,
-              decoration:
-                  const InputDecoration(hintText: "Digite o que você procura"),
+              controller: pesquisa,
+              style: TextStyle(color: Colors.brown, fontSize: 36),
+              decoration: InputDecoration(
+                labelText: 'O que voce procura?',
+                labelStyle: TextStyle(color: Colors.brown, fontSize: 22),
+              ),
             ),
             actions: <Widget>[
               MaterialButton(
@@ -319,14 +331,13 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                 onPressed: () {
                   setState(() {
                     codeDialog = valueText;
-                    // Navigator.pushNamed(context, '/TELA_INICIAL', arguments: codeDialog );
-                    ;
+                    Navigator.pushNamed(context, '/pesquisa',
+                        arguments: pesquisa);
                   });
                 },
               ),
             ],
           );
         });
-        
-  }*/
+  }
 }

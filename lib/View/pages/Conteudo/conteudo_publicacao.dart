@@ -10,9 +10,8 @@ class _ViewPostState extends State<ViewPost> {
   var conteudo;
   @override
   Widget build(BuildContext context) {
-
     final data = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>  ; 
-    String tituloPub = data['titulo_pub'];
+    String tituloPub = data['uid'];
     String subtituloPub = data['subtitulo_pub'];
     String autorPub = data['autor_pub'];
     String texto = data['texto'];
@@ -25,7 +24,6 @@ class _ViewPostState extends State<ViewPost> {
       color: const Color.fromARGB(255, 255, 255, 255),
         padding: const EdgeInsets.all(5),
         child: ListView(
-          
           children: [
             Container(
               child: Column(children: [
@@ -107,10 +105,7 @@ class _ViewPostState extends State<ViewPost> {
             backgroundColor: Colors.redAccent,
             child: Icon(Icons.favorite_rounded),
             onPressed: () {
-              //_displayTextInputDialog(context);
             })
-
-      );
-    
+      );  
   }
 }
