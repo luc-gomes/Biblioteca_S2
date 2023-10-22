@@ -11,14 +11,14 @@ class _ViewPostState extends State<ViewPost> {
   @override
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>  ; 
-    String tituloPub = data['uid'];
+    String tituloPub = data['subtitulo_pub'];
     String subtituloPub = data['subtitulo_pub'];
     String autorPub = data['autor_pub'];
     String texto = data['texto'];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text('Sobre'),
+        title: Text(autorPub),
       ),
       body: Container(
       color: const Color.fromARGB(255, 255, 255, 255),

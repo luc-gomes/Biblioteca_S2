@@ -17,9 +17,6 @@ class Splash2 extends StatelessWidget {
                               fit: BoxFit.cover ,
                             ),
             ]
-                       
-             
-          
           ),
              ),
        ),

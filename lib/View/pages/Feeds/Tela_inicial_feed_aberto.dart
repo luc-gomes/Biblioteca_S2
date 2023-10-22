@@ -57,6 +57,7 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
           Container(
             //SUBTITULO
             child: Text(
+              
               subtitulo,
               style: const TextStyle(
                   fontSize: 16,
@@ -168,9 +169,11 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
                     });
               },
             )
-          ]),
-        ],
+          ]
+          )
+        ,SizedBox(height: 10,) ],
       ),
+     
     );
   }
 
@@ -228,6 +231,11 @@ class _Tela_Inicial_ABERTOState extends State<Tela_Inicial_ABERTO> {
               ListTile(
                 leading: Icon(Icons.g_mobiledata),
                 title: Text('Entrar Com google'),
+                /*
+                 onTap: () => if (FirebaseAuth.instance.currentUser != null/* or controller.googleAccount.value != null*/) {
+                  print(FirebaseAuth.instance.currentUser?.uid);
+                  }Navigator.pushNamed(context, '/login_improved'),
+                */
                 onTap: () => Navigator.pushNamed(context, '/login_improved'),
               ),
               ListTile(
